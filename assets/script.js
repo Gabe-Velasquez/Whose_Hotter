@@ -16,6 +16,9 @@ function citySearch(){
         .then(function(response){
             return response.json();
         })
+        .then(function(data){
+
+        })
         .catch(function(error){
             //Modal
         });
@@ -26,6 +29,9 @@ function weatherSearch(){
    fetch(apiUrl + apiKey)
         .then(function(response){
             return response.json();
+        })
+        .then(function(data){
+            
         })
         .catch(function(error){
             //modal alert goes here
