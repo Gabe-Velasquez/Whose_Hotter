@@ -1,5 +1,7 @@
 // Selectors to link html elements
 let submitBtn = document.querySelector('');
+let countrySearch = document.getElementById('#');
+let citySelect = document.getElementById('#');
 
 let cityResult = [];
 
@@ -7,8 +9,14 @@ let cityResult = [];
 const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
 let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
+
+// RESTcountry API fetch
+function citySearch(){
+
+}
+
 // Search function and fetches API request 
-function searchResults(){
+function weatherSearch(){
    fetch(apiUrl + apiKey)
         .then(function(response){
             return response.json();
