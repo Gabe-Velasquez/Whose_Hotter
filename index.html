@@ -4,10 +4,123 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- Bulma Link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"> <!-- FontAwesome Link -->
+    <link rel="stylesheet" href="assets/style.css"> <!-- CSS Link -->
     <title>Whose Hotter</title>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-background-color is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+            <!-- <img src=""> --> <h1><strong>WhoseHotter</strong> (placeholder)</h1>
+            </a>
+        </div>
+
+        <!-- Recent Cities -->
+        <div id="navbarBasicExample" class="navbar-end">
+            <div class="navbar-item">
+                <p>Recent Searches: </p>
+                <div class="buttons">
+                <a class="button is-info" id="recentCities">
+                    <strong>New York City, NY</strong>
+                </a>
+                <a class="button is-info" id="recentCities">
+                    <strong>Paris, France</strong>
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero -->
+    <section class="hero is-medium is-warning">
+        <div class="hero-body">
+          <p class="title">
+            Need a Vacation where the weather is just right?
+          </p>
+          <p class="subtitle">
+            We're here to help.<i class='fas fa-rainbow'></i>
+          </p>
+          <p class="subtitle">
+            Start by selecting two locations in the fields below.
+          </p>
+        </div>
+      </section>
+
+    <br>
+        <!-- Column 1 -->
+    <div class="columns is-mobile is-justify-content-space-around">
+        <div class="column is-one-quarter-desktop is-one-third-tablet">
+            <!-- Column 1 Dropdowns -->
+            <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger">
+                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                    <span>Country</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                  <div class="dropdown-content" id="countrySelector">
+                    <a href="#" class="dropdown-item">
+                        United States
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Mexico
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Germany
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        South Korea
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Australia
+                    </a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column 2 -->
+        <div class="column is-one-quarter-desktop is-one-third-tablet">
+            <!-- Column 2 Dropdowns -->
+            <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                    <span>Country</span>
+                    <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                    <div class="dropdown-content" id="countrySelector">
+                    <a href="#" class="dropdown-item">
+                        United States
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Mexico
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Germany
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        South Korea
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Australia
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+      
+
     
     <script src="./assets/script.js"></script>
 </body>
