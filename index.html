@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- Bulma Link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"> <!-- FontAwesome Link -->
     <link rel="stylesheet" href="assets/style.css"> <!-- CSS Link -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Whose Hotter</title>
 </head>
 <body>
@@ -52,9 +53,9 @@
     <br>
         <!-- Column 1 -->
     <div class="columns is-mobile is-justify-content-space-around">
-        <div class="column is-one-quarter-desktop is-one-third-tablet">
-            <!-- Column 1 Dropdowns -->
-            <div class="dropdown is-hoverable">
+        <div class="column is-one-quarter-desktop is-one-third-tablet is-flex is-flex-direction-column">
+            <!-- Column 1 Country Dropdowns -->
+            <div class="dropdown is-hoverable m-4 ">
                 <div class="dropdown-trigger">
                   <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                     <span>Country</span>
@@ -64,7 +65,7 @@
                   </button>
                 </div>
                 <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                  <div class="dropdown-content" id="countrySelector">
+                  <div class="dropdown-content" id="country1Selector">
                     <a href="#" class="dropdown-item">
                         United States
                     </a>
@@ -83,11 +84,39 @@
                   </div>
                 </div>
             </div>
+            <!-- Column 1 City Dropdowns -->
+            <div class="dropdown is-hoverable m-4">
+                <div class="dropdown-trigger">
+                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                    <span>City</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                  <div class="dropdown-content" id="city1Selector">
+                    <a href="#" class="dropdown-item">
+                        example1
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        example2
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        example3
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        example 4
+                    </a>
+                  </div>
+                </div>
+            </div>
+
         </div>
         <!-- Column 2 -->
-        <div class="column is-one-quarter-desktop is-one-third-tablet">
-            <!-- Column 2 Dropdowns -->
-            <div class="dropdown is-hoverable">
+        <div class="column is-one-quarter-desktop is-one-third-tablet is-flex is-flex-direction-column">
+            <!-- Country 2 Dropdown -->
+            <div class="dropdown is-hoverable m-4">
                 <div class="dropdown-trigger">
                     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                     <span>Country</span>
@@ -97,7 +126,7 @@
                     </button>
                 </div>
                 <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                    <div class="dropdown-content" id="countrySelector">
+                    <div class="dropdown-content" id="country2Selector">
                     <a href="#" class="dropdown-item">
                         United States
                     </a>
@@ -116,9 +145,66 @@
                     </div>
                 </div>
             </div>
+            <!-- City 2 Dropdown -->
+            <div class="dropdown is-hoverable m-4">
+                <div class="dropdown-trigger">
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                    <span>City</span>
+                    <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                    <div class="dropdown-content" id="city2Selector">
+                        <a href="#" class="dropdown-item">
+                            example1
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            example2
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            example3
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            example 4
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
       
+
+
+    <div class="tile is-ancestor m-6">
+        <div class="tile is-vertical is-parent">
+            <div class="tile is-child is-12 notification is-primary">
+                <p class="title">country1Selector</p>
+                <p class="subtitle">city1Selector</p>
+            </div>
+            <div class="tile is-child is-12 notification is-primary">
+                <p class="title">country1Selector</p>
+                <p class="subtitle">city1Selector</p>
+            </div>
+        </div>
+        <div class="tile is-vertical is-parent">
+            <div class="tile is-child is-12 notification is-dark">
+                <p class="title">country2Selector</p>
+                <p class="subtitle">city2Selector</p>
+            </div>
+            <div class="tile is-child is-12 notification is-dark">
+                <p class="title">Result of City 2</p>
+                <p class="subtitle">language</p>
+                <p class="subtitle">region</p>
+                <p class="subtitle">7/24 -- <i class='fas fa-sun' style='color:yellow'></i> High 78°</p>
+                <p class="subtitle">7/25 -- <i class='fas fa-cloud'></i> High 72°</p>
+                <p class="subtitle">7/26 -- <i class='fas fa-bolt' style='color:yellow'></i> High 84°</p>
+                <p class="subtitle">7/27 -- <i class='fas fa-sun' style='color:yellow'></i> High 90°</p>
+                <p class="subtitle">7/28 -- <i class='fas fa-sun' style='color:yellow'></i> High 92°</p>
+            </div>
+        </div>
+    </div>
       
 
     
