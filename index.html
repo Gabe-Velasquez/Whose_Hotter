@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- Bulma Link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"> <!-- FontAwesome Link -->
-    <link rel="stylesheet" href="assets/style.css"> <!-- CSS Link -->
+    
+    <!-- jQuery UI <link> tag -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="assets/style.css"> <!-- CSS Link -->
     <title>Whose Hotter</title>
 </head>
 <body>
@@ -66,7 +69,7 @@
                 </div>
                 <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                   <div class="dropdown-content" id="country1Selector">
-                    <a href="#" class="dropdown-item">
+                    <a href="#" class="dropdown-item" id="us">
                         United States
                     </a>
                     <a href="#" class="dropdown-item">
@@ -84,6 +87,7 @@
                   </div>
                 </div>
             </div>
+            
             <!-- Column 1 City Dropdowns -->
             <div class="dropdown is-hoverable m-4">
                 <div class="dropdown-trigger">
@@ -96,16 +100,16 @@
                 </div>
                 <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                   <div class="dropdown-content" id="city1Selector">
-                    <a href="#" class="dropdown-item">
+                    <a href="#" class="dropdown-item" id="city1">
                         example1
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="#" class="dropdown-item" id="city2">
                         example2
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="#" class="dropdown-item" id="city3">
                         example3
                     </a>
-                    <a href="#" class="dropdown-item">
+                    <a href="#" class="dropdown-item" id="city4">
                         example 4
                     </a>
                   </div>
@@ -206,8 +210,9 @@
         </div>
     </div>
       
-
-    
+    <!-- jquery script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
