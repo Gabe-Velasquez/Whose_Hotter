@@ -65,10 +65,10 @@ function weatherSearch(){
 countryUS.addEventListener("click", function(event) {
     event.preventDefault();
     country.textContent = "United States";
-    cityOption1.textContent = "LA";
-    cityOption2.textContent = "NY";
-    cityOption3.textContent = "MPLS";
-    cityOption4.textContent = "LV";
+    cityOption1.textContent = "Los Angeles";
+    cityOption2.textContent = "New York";
+    cityOption3.textContent = "Las Vegas";
+    cityOption4.textContent = "Miami";
 
   });
 
@@ -115,10 +115,10 @@ countryUS.addEventListener("click", function(event) {
   countryUS2.addEventListener("click", function(event) {
     event.preventDefault();
     country2.textContent = "United States";
-    cityOption5.textContent = "LA";
-    cityOption6.textContent = "NY";
-    cityOption7.textContent = "MPLS";
-    cityOption8.textContent = "LV";
+    cityOption5.textContent = "Los Angeles";
+    cityOption6.textContent = "New York";
+    cityOption7.textContent = "Las Vegas";
+    cityOption8.textContent = "Miami";
 
   }); 
 
