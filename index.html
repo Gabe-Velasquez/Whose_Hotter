@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- Bulma Link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"> <!-- FontAwesome Link -->
-    <link rel="stylesheet" href="assets/style.css"> <!-- CSS Link -->
+    
+    <!-- jQuery UI <link> tag -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="assets/style.css"> <!-- CSS Link -->
     <title>Whose Hotter</title>
 </head>
 <body>
@@ -65,7 +68,8 @@
                 <div class="dropdown is-hoverable m-4 ">
                     <div class="dropdown-trigger">
                       <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                        <span>Country</span>
+                        <!-- change this when country selected -->
+                        <span id="country">Country</span>
                         <span class="icon is-small">
                           <i class="fas fa-angle-down" aria-hidden="true"></i>
                         </span>
@@ -73,28 +77,30 @@
                     </div>
                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                       <div class="dropdown-content" id="country1Selector">
-                        <a href="#" class="dropdown-item">
+                        <a href="#" class="dropdown-item" id="us">
                             United States
                         </a>
-                        <a href="#" class="dropdown-item">
+                        <a href="#" class="dropdown-item" id="mx">
                             Mexico
                         </a>
-                        <a href="#" class="dropdown-item">
+                        <a href="#" class="dropdown-item" id="de">
                             Germany
                         </a>
-                        <a href="#" class="dropdown-item">
+                        <a href="#" class="dropdown-item" id="kr">
                             South Korea
                         </a>
-                        <a href="#" class="dropdown-item">
+                        <a href="#" class="dropdown-item" id="au">
                             Australia
                         </a>
                       </div>
                     </div>
                 </div>
-                <!-- City 1 Selector Dropdowns -->
+                
+            <!-- City 1 Selector Dropdowns -->
                 <div class="dropdown is-hoverable m-4">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <!-- need to change this when city is selected -->
                             <span>City</span>
                             <span class="icon is-small">
                             <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -103,16 +109,16 @@
                     </div>
                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                         <div class="dropdown-content" id="city1Selector">
-                            <a href="#" class="dropdown-item">
+                            <a href="#" class="dropdown-item" id="city1">
                                 example1
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" class="dropdown-item" id="city2">
                                 example2
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" class="dropdown-item" id="city3">
                                 example3
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" class="dropdown-item" id="city4">
                                 example 4
                             </a>
                         </div>
@@ -138,7 +144,7 @@
                     <div class="dropdown is-hoverable m-4 ">
                         <div class="dropdown-trigger">
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                <span>Country</span>
+                                <span id="country2">Country</span>
                                 <span class="icon is-small">
                                 <i class="fas fa-angle-down" aria-hidden="true"></i>
                                 </span>
@@ -146,19 +152,19 @@
                         </div>
                         <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                             <div class="dropdown-content" id="country2Selector">
-                                <a href="#" class="dropdown-item">
+                                <a href="#" class="dropdown-item" id="us2">
                                     United States
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                <a href="#" class="dropdown-item" id="mx2">
                                     Mexico
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                <a href="#" class="dropdown-item" id="de2">
                                     Germany
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                <a href="#" class="dropdown-item" id="kr2">
                                     South Korea
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                <a href="#" class="dropdown-item" id="au2">
                                     Australia
                                 </a>
                             </div>
@@ -176,16 +182,16 @@
                     </div>
                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                         <div class="dropdown-content" id="city2Selector">
-                            <a href="#" class="dropdown-item">
+                            <a href="#" class="dropdown-item" id="city5">
                                 example1
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" class="dropdown-item" id="city6">
                                 example2
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" class="dropdown-item" id="city7">
                                 example3
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="#" class="dropdown-item" id="city8">
                                 example 4
                             </a>
                         </div>
@@ -206,8 +212,9 @@
         </div>
     </div>
       
-
-    
+    <!-- jquery script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
