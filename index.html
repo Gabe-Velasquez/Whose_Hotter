@@ -18,21 +18,26 @@
     <nav class="navbar navbar-background-color is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="index.html">
-            <!-- <img src=""> --> <h1><strong>WhoseHotter</strong> (placeholder)</h1>
+            <!-- <img src=""> --> 
+            <img src="./assets/WhoseHotterLogo.svg" alt="WhoseHotter text with beach umbrella and sun" />
+            <!-- <h1><strong>WhoseHotter</strong> (placeholder)</h1> -->
             </a>
         </div>
 
         <!-- Recent Cities -->
         <div id="navbarBasicExample" class="navbar-end">
-            <div class="navbar-item">
-                <p>Recent Searches: </p>
+            <div class="navbar-item is-mobile is-flex is-align-self-center is-flex-direction-column">
+                <p class="subtitle is-mobile is-flex is-align-self-center is-flex-wrap-wrap" style="color:white; ">Recent Searches: </p>
                 <div class="buttons">
-                <a class="button is-info" id="recentCities">
-                    <strong>New York City, NY</strong>
-                </a>
-                <a class="button is-info" id="recentCities">
-                    <strong>Paris, France</strong>
-                </a>
+                    <a class="button is-info" id="recentCities">
+                        <strong>New York City, NY</strong>
+                    </a>
+                    <a class="button is-info" id="recentCities">
+                        <strong>Paris, France</strong>
+                    </a>
+                    <a class="button is-info" id="recentCities">
+                        <strong>Seoul, South Korea</strong>
+                    </a>
                 </div>
             </div>
             </div>
@@ -54,150 +59,145 @@
       </section>
 
     <br>
-        <!-- Column 1 -->
-    <div class="columns is-mobile is-justify-content-space-around">
-        <div class="column is-one-quarter-desktop is-one-third-tablet is-flex is-flex-direction-column">
-            <!-- Column 1 Country Dropdowns -->
-            <div class="dropdown is-hoverable m-4 ">
-                <div class="dropdown-trigger">
-                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                    <span>Country</span>
-                    <span class="icon is-small">
-                      <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                  </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                  <div class="dropdown-content" id="country1Selector">
-                    <a href="#" class="dropdown-item" id="us">
-                        United States
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Mexico
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Germany
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        South Korea
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Australia
-                    </a>
-                  </div>
-                </div>
-            </div>
-            
-            <!-- Column 1 City Dropdowns -->
-            <div class="dropdown is-hoverable m-4">
-                <div class="dropdown-trigger">
-                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                    <span>City</span>
-                    <span class="icon is-small">
-                      <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                  </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                  <div class="dropdown-content" id="city1Selector">
-                    <a href="#" class="dropdown-item" id="city1">
-                        example1
-                    </a>
-                    <a href="#" class="dropdown-item" id="city2">
-                        example2
-                    </a>
-                    <a href="#" class="dropdown-item" id="city3">
-                        example3
-                    </a>
-                    <a href="#" class="dropdown-item" id="city4">
-                        example 4
-                    </a>
-                  </div>
-                </div>
-            </div>
 
-        </div>
-        <!-- Column 2 -->
-        <div class="column is-one-quarter-desktop is-one-third-tablet is-flex is-flex-direction-column">
-            <!-- Country 2 Dropdown -->
-            <div class="dropdown is-hoverable m-4">
-                <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                    <span>Country</span>
-                    <span class="icon is-small">
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                    </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                    <div class="dropdown-content" id="country2Selector">
-                    <a href="#" class="dropdown-item">
-                        United States
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Mexico
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Germany
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        South Korea
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Australia
-                    </a>
-                    </div>
-                </div>
-            </div>
-            <!-- City 2 Dropdown -->
-            <div class="dropdown is-hoverable m-4">
-                <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                    <span>City</span>
-                    <span class="icon is-small">
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                    </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                    <div class="dropdown-content" id="city2Selector">
-                        <a href="#" class="dropdown-item">
-                            example1
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            example2
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            example3
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            example 4
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-      
-
-
+    <!-- Column 1 -->
     <div class="tile is-ancestor m-6">
         <div class="tile is-vertical is-parent">
-            <div class="tile is-child is-12 notification is-primary">
-                <p class="title">country1Selector</p>
-                <p class="subtitle">city1Selector</p>
+            <div class="tile is-child is-12 notification is-primary"> <!-- First Column Selection Square-->
+                <!-- Country 1 Dropdown Selector -->
+                <div class="dropdown is-hoverable m-4 ">
+                    <div class="dropdown-trigger">
+                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                        <span>Country</span>
+                        <span class="icon is-small">
+                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                      <div class="dropdown-content" id="country1Selector">
+                        <a href="#" class="dropdown-item" id="us">
+                            United States
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Mexico
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Germany
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            South Korea
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            Australia
+                        </a>
+                      </div>
+                    </div>
+                </div>
+                
+            <!-- City 1 Selector Dropdowns -->
+                <div class="dropdown is-hoverable m-4">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <span>City</span>
+                            <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-content" id="city1Selector">
+                            <a href="#" class="dropdown-item" id="city1">
+                                example1
+                            </a>
+                            <a href="#" class="dropdown-item" id="city2">
+                                example2
+                            </a>
+                            <a href="#" class="dropdown-item" id="city3">
+                                example3
+                            </a>
+                            <a href="#" class="dropdown-item" id="city4">
+                                example 4
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tile is-child is-12 notification is-primary">
-                <p class="title">country1Selector</p>
-                <p class="subtitle">city1Selector</p>
+            <!-- City 1 Selector Results -->
+            <div class="tile is-child is-12 notification is-primary"> <!-- First Column Results Square -->
+                <p class="title">Result of City 1</p>
+                <p class="subtitle">language</p>
+                <p class="subtitle">region</p>
+                <p class="subtitle">7/24 -- <i class='fas fa-sun' style='color:yellow'></i> High 78°</p>
+                <p class="subtitle">7/25 -- <i class='fas fa-cloud'></i> High 72°</p>
+                <p class="subtitle">7/26 -- <i class='fas fa-bolt' style='color:yellow'></i> High 84°</p>
+                <p class="subtitle">7/27 -- <i class='fas fa-sun' style='color:yellow'></i> High 90°</p>
+                <p class="subtitle">7/28 -- <i class='fas fa-sun' style='color:yellow'></i> High 92°</p>
             </div>
         </div>
+        <!-- Column 2 -->
         <div class="tile is-vertical is-parent">
-            <div class="tile is-child is-12 notification is-dark">
-                <p class="title">country2Selector</p>
-                <p class="subtitle">city2Selector</p>
+            <div class="tile is-child is-12 notification is-dark">  <!-- Second Column Results Square -->
+                <!-- Country 2 Dropdown Selector -->
+                    <div class="dropdown is-hoverable m-4 ">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                <span>Country</span>
+                                <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                            <div class="dropdown-content" id="country2Selector">
+                                <a href="#" class="dropdown-item">
+                                    United States
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    Mexico
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    Germany
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    South Korea
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    Australia
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <!-- City 2 Selector Dropdowns -->
+                <div class="dropdown is-hoverable m-4">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <span>City</span>
+                            <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-content" id="city2Selector">
+                            <a href="#" class="dropdown-item">
+                                example1
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                example2
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                example3
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                example 4
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="tile is-child is-12 notification is-dark">
+            <!-- City 2 Selector Results -->
+            <div class="tile is-child is-12 notification is-dark">  <!-- Second Column Results Square -->
                 <p class="title">Result of City 2</p>
                 <p class="subtitle">language</p>
                 <p class="subtitle">region</p>
