@@ -23,6 +23,33 @@ var cityOption6 = document.getElementById("city6");
 var cityOption7 = document.getElementById("city7");
 var cityOption8 = document.getElementById("city8");
 
+USA
+  newYork = 2627448
+  losAngeles = 2626754
+  lasVegas = 329506
+  miami = 3593071
+Mexico
+  mexcioCity= 1862904
+  Cancun= 235049
+  Guadalajara= 243735
+  Tijuana= 241912
+Germany
+  Berlin= 2601546
+  Munich= 3557791
+  Frankfurt= 2601814
+  Hamburg= 3352352
+South Korea
+  Seoul= 226064
+  Busan= 2332214
+  Gwangju= 2331839
+  Incheon= 2331954
+Australia
+  Sydney= 3496594
+  Melbourne= 26163
+  Cairns= 3494533
+  Adelaide= 3497809
+    
+
 
 let cityResult = [];
 
