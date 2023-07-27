@@ -47,8 +47,8 @@ Australia
   Sydney= 3496594, -33.865143, 151.209900
   Melbourne= 26163,-37.840935, 144.946457
   Cairns= 3494533, -16.925491, 145.754120
-  Adelaide= 3497809, -34.921230, 138.599503
-    
+  let Adelaide=  "-34.921230, 138.599503",
+    // 3497809,
 
 
 let cityResult = [];
@@ -59,11 +59,12 @@ let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
 // Search function and fetches API request 
 function weatherSearch(){
-   fetch(apiUrl + apiKey)
+   fetch(`http://api.accuweather.com/locations/v1/${Adelaide}?q=san&apikey=`+ apiKey)
         .then(function(response){
             return response.json();
         })
         .then(function(data){
+          console.log(data)
             
         })
         .catch(function(error){
