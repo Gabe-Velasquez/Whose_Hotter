@@ -22,6 +22,7 @@ var cityOption5 = document.getElementById("city5");
 var cityOption6 = document.getElementById("city6");
 var cityOption7 = document.getElementById("city7");
 var cityOption8 = document.getElementById("city8");
+let recentCity = document.getElementsByClassName('.buttons');
 
 
 let cityResult = [];
@@ -61,12 +62,15 @@ function weatherSearch(){
 
 // city search for items stored in local storage and populating in navbar 
 function cityStorage(){
-  const keys= Object.keys(localStorage); //need to build set item feature so we have places saved locally
-  let navCitiesToShow = 2;
-
-  for (let i=0; i<keys.length; i++){
-      
-  }
+  const key = Object.keys(localStorage); //need to build set item feature so we have places saved locally
+  let keysToMake = 2;
+  
+// Loop through keys and creates entries
+for (let i=0; i < Math.min(keys.length, keysToMake); i++){
+  let AElement = document.createElement('a');
+  AElement.textContent = keys[i];
+  recentCity.appendChild(AElement);
+}
 }
 
 
