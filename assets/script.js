@@ -24,30 +24,30 @@ var cityOption7 = document.getElementById("city7");
 var cityOption8 = document.getElementById("city8");
 
 USA
-  newYork = 2627448
-  losAngeles = 2626754
-  lasVegas = 329506
-  miami = 3593071
+  newYork = 2627448, 40.776676, -73.971321
+  losAngeles = 2626754, 34.052235, -118.243683
+  lasVegas = 329506, 36.188110, -115.176468
+  miami = 3593071, 25.761681, -80.191788
 Mexico
-  mexcioCity= 1862904
-  Cancun= 235049
-  Guadalajara= 243735
-  Tijuana= 241912
+  mexcioCity= 1862904, 19.432608, -99.133209
+  Cancun= 235049, 21.1743, -86.8466
+  Guadalajara= 243735, 20.659698, -103.349609
+  Tijuana= 241912, 32.522499, -117.046623
 Germany
-  Berlin= 2601546
-  Munich= 3557791
-  Frankfurt= 2601814
-  Hamburg= 3352352
+  Berlin= 2601546,52.520008, 13.404954
+  Munich= 3557791, 48.137154, 11.576124
+  Frankfurt= 2601814, 50.110924, 8.682127
+  Hamburg= 3352352, 53.551086, 9.993682
 South Korea
-  Seoul= 226064
-  Busan= 2332214
-  Gwangju= 2331839
-  Incheon= 2331954
+  Seoul= 226064,
+  Busan= 2332214, 35.166668, 129.066666
+  Gwangju= 2331839, 35.166668, 126.916664
+  Incheon= 2331954, 37.456257, 126.705208
 Australia
-  Sydney= 3496594
-  Melbourne= 26163
-  Cairns= 3494533
-  Adelaide= 3497809
+  Sydney= 3496594, -33.865143, 151.209900
+  Melbourne= 26163,-37.840935, 144.946457
+  Cairns= 3494533, -16.925491, 145.754120
+  Adelaide= 3497809, -34.921230, 138.599503
     
 
 
@@ -56,21 +56,6 @@ let cityResult = [];
 // Accuweather API 
 const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
 let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
-
-
-// RESTcountry API fetch
-function citySearch(){
-    fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(data){
-
-        })
-        .catch(function(error){
-            //Modal
-        });
-};
 
 // Search function and fetches API request 
 function weatherSearch(){
@@ -86,6 +71,19 @@ function weatherSearch(){
         });
 };
 
+// RESTcountry API fetch
+function citySearch(){
+    fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+
+        })
+        .catch(function(error){
+            //Modal
+        });
+};
 // drop down countries
 // if function so when a country is picked the cities option changes in the next box
 
