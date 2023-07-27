@@ -38,7 +38,7 @@ function citySearch(){
             return response.json();
         })
         .then(function(data){
-
+          // localStorage.setItem('key1', "val1")
         })
         .catch(function(error){
             //Modal
@@ -58,6 +58,17 @@ function weatherSearch(){
             //modal alert goes here
         });
 };
+
+// city search for items stored in local storage and populating in navbar 
+function cityStorage(){
+  const keys= Object.keys(localStorage); //need to build set item feature so we have places saved locally
+  let navCitiesToShow = 2;
+
+  for (let i=0; i<keys.length; i++){
+      
+  }
+}
+
 
 // drop down countries
 // if function so when a country is picked the cities option changes in the next box
