@@ -1,9 +1,10 @@
 // Selectors to link html elements
 // let submitBtn = document.querySelector('#');
-let countrySearch = document.getElementById('#');
-let citySelect = document.getElementById('#');
-var country = document.getElementById("country");
+// let countrySearch = document.getElementById('#');
+// let citySelect = document.getElementById('#');
+var country1 = document.getElementById("country");
 var country2 = document.getElementById("country2");
+
 var countryUS = document.getElementById("us");
 var countryMX = document.getElementById("mx");
 var countryDE = document.getElementById("de");
@@ -22,7 +23,8 @@ var cityOption5 = document.getElementById("city5");
 var cityOption6 = document.getElementById("city6");
 var cityOption7 = document.getElementById("city7");
 var cityOption8 = document.getElementById("city8");
-
+var countryMenu1 = document.querySelector("#dropdown-menu4");
+var countryMenu2 = document.querySelector("#dropdown-menu4"); 
 
 let cityResult = [];
 
@@ -32,13 +34,13 @@ let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
 
 // RESTcountry API fetch
-function citySearch(){
-    fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
+function citySearch(searchCountry){
+    fetch(`https://restcountries.com/v3.1/name/${searchCountry}`)
         .then(function(response){
             return response.json();
         })
         .then(function(data){
-
+          console.log(data)
         })
         .catch(function(error){
             //Modal
@@ -162,9 +164,25 @@ countryUS.addEventListener("click", function(event) {
 
   });   
 
+// Event listener for Country 1 using id dropdown-menu4
+countryMenu1.addEventListener("click", function(event) {
+  event.stopPropagation();
+  console.log(this);
+  console.log(event.target)
+  var countriesObj = citySearch(event.target.id)
+
+  getCountry(countriesArr, country1)
+
+})
+
+// To do: Get country and then country info from object returned
+function getCountry(countriesObj, countryName) {
+  for (var key in countriesObj) {
+    var index
+  }
 
 
-
+}
 
 
 
