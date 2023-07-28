@@ -26,6 +26,10 @@ var cityOption8 = document.getElementById("city8");
 var countryMenu1 = document.querySelector("#dropdown-menu4");
 var countryMenu2 = document.querySelector("#dropdown-menu4"); 
 
+// var countriesObj 
+// var countryData
+// var currency = " ";
+
 let cityResult = [];
 
 // Accuweather API 
@@ -34,13 +38,19 @@ let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
 
 // RESTcountry API fetch
-function citySearch(searchCountry){
-    fetch(`https://restcountries.com/v3.1/name/${searchCountry}`)
+function citySearch(countryCode){
+  // original RestCountries API link: https://restcountries.com/v3.1/name/${searchCountry}
+  // Search through entire list of countries: https://restcountries.com/v3.1/all
+  
+    return fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`)
         .then(function(response){
             return response.json();
         })
         .then(function(data){
-          console.log(data)
+          // countryData = data
+          // console.log(data)
+          return data
+
         })
         .catch(function(error){
             //Modal
@@ -167,22 +177,52 @@ countryUS.addEventListener("click", function(event) {
 // Event listener for Country 1 using id dropdown-menu4
 countryMenu1.addEventListener("click", function(event) {
   event.stopPropagation();
-  console.log(this);
-  console.log(event.target)
-  var countriesObj = citySearch(event.target.id)
-
-  getCountry(countriesArr, country1)
-
+  // console.log(this);
+  // console.log(event.target)
+  
+  // Takes the country code
+  citySearch(event.target.id).then(function(data) {
+    console.log(data)
+    getCountry(data)
+  })
 })
 
-// To do: Get country and then country info from object returned
-function getCountry(countriesObj, countryName) {
-  for (var key in countriesObj) {
-    var index
+function getCountry (dataArr) {
+  for (var country of dataArr) {
+
+    var currencies = country.currencies;
+    var countryFlag = country.flags;
+    var countryLanguage = country.languages;
+    var countryPopulation = country.population;
+    console.log(countryPopulation);
+    var countryCapital = country.capital;
+
+    for (var currency in currencies) {
+      console.log(currencies[currency].symbol);
+      console.log(currencies[currency].name);
+
+      var currencySymbol = currencies[currency].symbol;
+      var currencyName = currencies[currency].name;
+    }
+
+    for (var flag in countryFlag) {
+      var flagImg = countryFlag.svg;
+      console.log(flagImg)
+    }
+
+    for (var lang in countryLanguage) {
+      console.log(countryLanguage[lang]);
+      var language = countryLanguage[lang];
+    }
+
+    for (var capt in countryCapital) {
+      console.log(countryCapital[capt]);
+      var capital = countryCapital[capt];
+    }
   }
-
-
 }
+
+
 
 
 
