@@ -23,6 +23,7 @@ var cityOption6 = document.getElementById("city6");
 var cityOption7 = document.getElementById("city7");
 var cityOption8 = document.getElementById("city8");
 var buttonEl = document.getElementById("button");
+var locationTest = true;
 
 // USA
 //   newYork = 2627448, 40.776676, -73.971321
@@ -61,20 +62,47 @@ let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
 
 function locationKey(){
- ;
   fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${Adelaide}`)
     .then(function(response){
       return response.json();
   })
     .then(function(data){
     console.log(data.Key);
-    
-      
-  })
-    .catch(function(error){
-      //modal alert goes here
+    var locationNum = (data.Key);
+
+      if (locationTest == true){  
+        console.log("test");   
+        
+        fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(data){
+            console.log(data);
+            console.log("test");
+          })
+          .catch(function(error){
+            // modal alert goes here
+          })
+        }})     
+     .catch(function(error){
+    //modal alert goes here
   });
 };
+  // function weatherSearch(){
+  //   fetch(`http://api.accuweather.com/locations/v1/${data.key}?q=san&apikey=`+ apiKey)
+  //   .then(function(response){
+  //     return response.json();
+  //   })
+  //   .then(function(data){
+  //     console.log(data)
+      
+  //   })
+  //   .catch(function(error){
+  //     //modal alert goes here
+  //   });
+  // };
+
 buttonEl.addEventListener("click", locationKey); 
   
 
@@ -211,7 +239,6 @@ countryUS.addEventListener("click", function(event) {
   
 
 
-  
   
   
   
