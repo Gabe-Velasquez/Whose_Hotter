@@ -1,7 +1,7 @@
 // Selectors to link html elements
 // let submitBtn = document.querySelector('#');
 let countrySearch = document.getElementById('#');
-let citySelect = document.getElementById('#');
+let city1SelectorEl = document.getElementById('city1selector');
 var country = document.getElementById("country");
 var country2 = document.getElementById("country2");
 var countryUS = document.getElementById("us");
@@ -27,7 +27,8 @@ var locationTest = true;
 
 // USA
 //   newYork = 2627448, 40.776676, -73.971321
-//   losAngeles = 2626754, 34.052235, -118.243683
+var LosAngeles = "34.052235, -118.243683"
+2626754,
 //   lasVegas = 329506, 36.188110, -115.176468
 //   miami = 3593071, 25.761681, -80.191788
 // Mexico
@@ -49,78 +50,66 @@ var locationTest = true;
 //   Sydney= 3496594, -33.865143, 151.209900
 //   Melbourne= 26163,-37.840935, 144.946457
 //   Cairns= 3494533, -16.925491, 145.754120
-  var Adelaide= "-34.921230,138.599503"
+  // var Adelaide= "-34.921230,138.599503"
     
 // 3497809
 
 // // let cityResult = [];
 
 // Accuweather API 
-const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
-let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
+// const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
+// let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
+// add even listner that picks city and enters that var in for locationkey
+city1.addEventListener("click", function(evt) {
+  evt.preventDefault();
+  console.log(city1.textContent);
+  var cityPicked = city1.textContent
+  console.log(cityPicked);  
+});
 
-
-function locationKey(){
-  fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${Adelaide}`)
+city1SelectorEl.city1.addEventListener("click", function(evt) {
+  evt.preventDefault();
+  console.log(city1SelectorEl.textContent);
+});
+  
+  
+  
+  
+  function locationKey(){
+    fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${LosAngeles}`)
     .then(function(response){
       return response.json();
-  })
+    })
     .then(function(data){
-    console.log(data.Key);
-    var locationNum = (data.Key);
-
-      if (locationTest == true){  
-        console.log("test");   
-        
-        fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
-          .then(function(response){
-            return response.json();
-          })
-          .then(function(data){
-            console.log(data);
-            console.log("test");
-          })
-          .catch(function(error){
-            // modal alert goes here
-          })
-        }})     
-     .catch(function(error){
-    //modal alert goes here
-  });
-};
-  // function weatherSearch(){
-  //   fetch(`http://api.accuweather.com/locations/v1/${data.key}?q=san&apikey=`+ apiKey)
-  //   .then(function(response){
-  //     return response.json();
-  //   })
-  //   .then(function(data){
-  //     console.log(data)
+      console.log(data.Key);
+      var locationNum = (data.Key);
       
-  //   })
-  //   .catch(function(error){
-  //     //modal alert goes here
-  //   });
-  // };
-
-buttonEl.addEventListener("click", locationKey); 
-  
-
-// Search function and fetches API request 
-function weatherSearch(){
-  fetch(`http://api.accuweather.com/locations/v1/${Adelaide}?q=san&apikey=`+ apiKey)
-  .then(function(response){
-    return response.json();
-  })
-  .then(function(data){
-    console.log(data)
+      if (locationTest == true){  
+        fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
+        .then(function(response){
+          return response.json();
+        })
+        .then(function(data){
+          console.log(data);
+          
+        })
+        .catch(function(error){
+          // modal alert goes here
+        })
+      }})     
+      .catch(function(error){
+        //modal alert goes here
+      });
+    };
     
-  })
-  .catch(function(error){
-    //modal alert goes here
-  });
-};
-
+    // temp search button to check weather api
+    buttonEl.addEventListener("click", locationKey); 
+      
+      
+      
+      
+      
 // RESTcountry API fetch
 function citySearch(){
   fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
@@ -128,25 +117,26 @@ function citySearch(){
     return response.json();
   })
   .then(function(data){
-  fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
-  .then(function(response){
+    fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
+    .then(function(response){
     return response.json();
   })
   .then(function(data){
-
-        })
-        .catch(function(error){
-          //Modal
-          //Modal
-        });
-};
+    
+  })
+  .catch(function(error){
+    //Modal
+    //Modal
+  });
+});
+}
 // drop down countries
 // if function so when a country is picked the cities option changes in the next box
 
 countryUS.addEventListener("click", function(event) {
     event.preventDefault();
     country.textContent = "United States";
-    cityOption1.textContent = "Los Angeles";
+    cityOption1.textContent = "LosAngeles";
     cityOption2.textContent = "New York";
     cityOption3.textContent = "Las Vegas";
     cityOption4.textContent = "Miami";
@@ -154,9 +144,9 @@ countryUS.addEventListener("click", function(event) {
     
   });
 
-  countryMX.addEventListener("click", function(event) {
-    event.preventDefault();
-    country.textContent = "Mexico";
+countryMX.addEventListener("click", function(event) {
+  event.preventDefault();
+  country.textContent = "Mexico";
     cityOption1.textContent = "Mexico City";
     cityOption2.textContent = "Cancun";
     cityOption3.textContent = "Guadalajara";
@@ -243,7 +233,7 @@ countryUS.addEventListener("click", function(event) {
     cityOption8.textContent = "Adelaide";
     
   });   
-    
+
 
 
     
