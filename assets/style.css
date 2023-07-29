@@ -1,0 +1,29 @@
+.footer {
+    background-color: hsl(0, 0%, 21%);
+    color: #fefefe;
+    
+}
+
+.footertitle {
+    color: #fefefe;
+    padding-bottom: 10px
+}
+
+.footerlinks {
+    color: #fefefe;
+    text-decoration: none;
+    background-color: 	hsl(171, 100%, 41%);
+    border-radius: 5px;
+    padding: 3px 15px 3px 15px;
+    opacity: 0.7;
+    transition: 0.4s;
+}
+
+.footerlinks:hover {
+    font-size: 1.5rem;
+    color: #fefefe;
+    opacity: 1;
+    padding: 6px 22px 6px 22px;
+}
+
+

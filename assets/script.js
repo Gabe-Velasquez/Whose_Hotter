@@ -53,7 +53,7 @@ var locationTest = true;
     
 // 3497809
 
-// let cityResult = [];
+// // let cityResult = [];
 
 // Accuweather API 
 const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
@@ -128,9 +128,15 @@ function citySearch(){
     return response.json();
   })
   .then(function(data){
+  fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
 
         })
         .catch(function(error){
+          //Modal
           //Modal
         });
 };
@@ -144,6 +150,7 @@ countryUS.addEventListener("click", function(event) {
     cityOption2.textContent = "New York";
     cityOption3.textContent = "Las Vegas";
     cityOption4.textContent = "Miami";
+    
     
   });
 
@@ -174,9 +181,9 @@ countryUS.addEventListener("click", function(event) {
     cityOption2.textContent = "Busan";
     cityOption3.textContent = "Gwangju";
     cityOption4.textContent = "Incheon";
-    
+        
   });  
-  
+    
   countryAU.addEventListener("click", function(event) {
     event.preventDefault();
     country.textContent = "Australia";
@@ -184,7 +191,7 @@ countryUS.addEventListener("click", function(event) {
     cityOption2.textContent = "Melbourne";
     cityOption3.textContent = "Cairns";
     cityOption4.textContent = "Adelaide";
-    
+        
   });  
 
   countryUS2.addEventListener("click", function(event) {
@@ -204,9 +211,9 @@ countryUS.addEventListener("click", function(event) {
     cityOption6.textContent = "Cancun";
     cityOption7.textContent = "Guadalajara";
     cityOption8.textContent = "Tijuana";
-    
+        
   });  
-  
+    
   countryDE2.addEventListener("click", function(event) {
     event.preventDefault();
     country2.textContent = "Germany";
@@ -214,7 +221,7 @@ countryUS.addEventListener("click", function(event) {
     cityOption6.textContent = "Munich";
     cityOption7.textContent = "Frankfurt";
     cityOption8.textContent = "Hamburg";
-    
+        
   });
 
   countryKR2.addEventListener("click", function(event) {
@@ -236,10 +243,11 @@ countryUS.addEventListener("click", function(event) {
     cityOption8.textContent = "Adelaide";
     
   });   
-  
+    
 
 
-  
-  
-  
+    
+    
+    
+    
   
