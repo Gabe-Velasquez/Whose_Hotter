@@ -24,11 +24,12 @@ var cityOption7 = document.getElementById("city7");
 var cityOption8 = document.getElementById("city8");
 var buttonEl = document.getElementById("button");
 var locationTest = true;
+var latlon = document.getElementById("latlon");
 
 // USA
 //   newYork = 2627448, 40.776676, -73.971321
 var LosAngeles = "34.052235, -118.243683"
-2626754,
+// 2626754,
 //   lasVegas = 329506, 36.188110, -115.176468
 //   miami = 3593071, 25.761681, -80.191788
 // Mexico
@@ -61,27 +62,31 @@ var LosAngeles = "34.052235, -118.243683"
 // let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
 // add even listner that picks city and enters that var in for locationkey
+
 city1.addEventListener("click", function(evt) {
   evt.preventDefault();
   console.log(city1.textContent);
   var cityPicked = city1.textContent
   console.log(cityPicked);  
+  if (locationTest==true) {
+    var LosAngeles= "34.052235, -118.243683"
+  }
+  latlon.append(LosAngeles);
+    
 });
 
-city1SelectorEl.city1.addEventListener("click", function(evt) {
-  evt.preventDefault();
-  console.log(city1SelectorEl.textContent);
-});
-  
-  
+ 
+ 
+   
   
   
   function locationKey(){
-    fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${LosAngeles}`)
+    fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon.textContent}`)
     .then(function(response){
       return response.json();
     })
     .then(function(data){
+      console.log(latlon.textContent);
       console.log(data.Key);
       var locationNum = (data.Key);
       
@@ -104,7 +109,7 @@ city1SelectorEl.city1.addEventListener("click", function(evt) {
     };
     
     // temp search button to check weather api
-    buttonEl.addEventListener("click", locationKey); 
+    latlon.addEventListener("click", locationKey); 
       
       
       
@@ -141,9 +146,9 @@ countryUS.addEventListener("click", function(event) {
     cityOption3.textContent = "Las Vegas";
     cityOption4.textContent = "Miami";
     
-    
-  });
+    });
 
+var cityPicker = 
 countryMX.addEventListener("click", function(event) {
   event.preventDefault();
   country.textContent = "Mexico";
@@ -151,8 +156,16 @@ countryMX.addEventListener("click", function(event) {
     cityOption2.textContent = "Cancun";
     cityOption3.textContent = "Guadalajara";
     cityOption4.textContent = "Tijuana";
+    city1.addEventListener("click", function(evt) {
+      evt.preventDefault(); 
+      if (locationTest==true) {
+        var cityPicked= "19.432608, -99.133209";
+        console.log(cityPicked);
+      }  
+    
+    });
 
-  });  
+
 
   countryDE.addEventListener("click", function(event) {
     event.preventDefault();
@@ -240,4 +253,4 @@ countryMX.addEventListener("click", function(event) {
     
     
     
-  
+})
