@@ -30,12 +30,73 @@ var countryMenu2 = document.querySelector("#dropdown-menu4");
 // var countryData
 // var currency = " ";
 
-let cityResult = [];
+// // let cityResult = [];
 
 // Accuweather API 
 const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
 let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
+
+
+function locationKey(){
+  fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${Adelaide}`)
+    .then(function(response){
+      return response.json();
+  })
+    .then(function(data){
+    console.log(data.Key);
+    var locationNum = (data.Key);
+
+      if (locationTest == true){  
+        console.log("test");   
+        
+        fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(data){
+            console.log(data);
+            console.log("test");
+          })
+          .catch(function(error){
+            // modal alert goes here
+          })
+        }})     
+     .catch(function(error){
+    //modal alert goes here
+  });
+};
+  // function weatherSearch(){
+  //   fetch(`http://api.accuweather.com/locations/v1/${data.key}?q=san&apikey=`+ apiKey)
+  //   .then(function(response){
+  //     return response.json();
+  //   })
+  //   .then(function(data){
+  //     console.log(data)
+      
+  //   })
+  //   .catch(function(error){
+  //     //modal alert goes here
+  //   });
+  // };
+
+buttonEl.addEventListener("click", locationKey); 
+  
+
+// Search function and fetches API request 
+function weatherSearch(){
+  fetch(`http://api.accuweather.com/locations/v1/${Adelaide}?q=san&apikey=`+ apiKey)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data)
+    
+  })
+  .catch(function(error){
+    //modal alert goes here
+  });
+};
 
 // RESTcountry API fetch
 function citySearch(countryCode){
@@ -67,10 +128,10 @@ function weatherSearch(){
             
         })
         .catch(function(error){
-            //modal alert goes here
+          //Modal
+          //Modal
         });
 };
-
 // drop down countries
 // if function so when a country is picked the cities option changes in the next box
 
@@ -81,7 +142,8 @@ countryUS.addEventListener("click", function(event) {
     cityOption2.textContent = "New York";
     cityOption3.textContent = "Las Vegas";
     cityOption4.textContent = "Miami";
-
+    
+    
   });
 
   countryMX.addEventListener("click", function(event) {
@@ -111,9 +173,9 @@ countryUS.addEventListener("click", function(event) {
     cityOption2.textContent = "Busan";
     cityOption3.textContent = "Gwangju";
     cityOption4.textContent = "Incheon";
-
+        
   });  
-
+    
   countryAU.addEventListener("click", function(event) {
     event.preventDefault();
     country.textContent = "Australia";
@@ -121,7 +183,7 @@ countryUS.addEventListener("click", function(event) {
     cityOption2.textContent = "Melbourne";
     cityOption3.textContent = "Cairns";
     cityOption4.textContent = "Adelaide";
-
+        
   });  
 
   countryUS2.addEventListener("click", function(event) {
@@ -141,9 +203,9 @@ countryUS.addEventListener("click", function(event) {
     cityOption6.textContent = "Cancun";
     cityOption7.textContent = "Guadalajara";
     cityOption8.textContent = "Tijuana";
-
+        
   });  
-
+    
   countryDE2.addEventListener("click", function(event) {
     event.preventDefault();
     country2.textContent = "Germany";
@@ -151,7 +213,7 @@ countryUS.addEventListener("click", function(event) {
     cityOption6.textContent = "Munich";
     cityOption7.textContent = "Frankfurt";
     cityOption8.textContent = "Hamburg";
-
+        
   });
 
   countryKR2.addEventListener("click", function(event) {
@@ -161,7 +223,7 @@ countryUS.addEventListener("click", function(event) {
     cityOption7.textContent = "Busan";
     cityOption8.textContent = "Gwangju";
     cityOption9.textContent = "Incheon";
-
+    
   });    
 
   countryAU2.addEventListener("click", function(event) {
@@ -171,7 +233,7 @@ countryUS.addEventListener("click", function(event) {
     cityOption6.textContent = "Melbourne";
     cityOption7.textContent = "Cairns";
     cityOption8.textContent = "Adelaide";
-
+    
   });   
 
 // Event listener for Country 1 using id dropdown-menu4
@@ -222,7 +284,8 @@ function getCountry (dataArr) {
   }
 }
 
-
-
-
-
+    
+    
+    
+    
+  
