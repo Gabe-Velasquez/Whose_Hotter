@@ -10,6 +10,8 @@ Live deployed pages is located at: https://gabe-velasquez.github.io/Whose_Hotter
 ## Usage
 To start using the application, you will first select a country from a dropdown list located in the middle of the document. After a country is selected, please select a city in the corresponding country. After a choice is made, weather forecasts and information about the city will be displayed below the country box displayed on the webpage. If you were curious on what you previously searched, it will be listed on the navbar on the top of the webpage. 
 
+![Alt text](./images/WhoseHotter.png)
+
 ## Credits 
 @astrunk87 <br />
 @Max24p7 <br />
@@ -18,4 +20,4 @@ To start using the application, you will first select a country from a dropdown 
 ## Future Updates
 - Use of modals for previous searches in navbar. 
 - integrate airline ticket purchasing from current searches.
-- Display more information about the city that was chosen (Flag, currency, etc.)
+- Display more information about the city that was chosen (currency, surrounding countries, etc.)
