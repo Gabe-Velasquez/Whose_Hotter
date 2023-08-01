@@ -184,6 +184,43 @@ function citySearch(countryCode){
         });
 };
 
+// Search function and fetches API request 
+function weatherSearch(){
+   fetch(apiUrl + apiKey)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+        })
+        .catch(function(error){
+          // modal alert goes here
+        })   
+      .catch(function(error){
+        //modal alert goes here
+      });
+    };
+    
+    // temp search button to check weather api
+    // RESTcountry API fetch
+    function citySearch(){
+      fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(data){
+        fetch(`https://restcountries.com/v3.1/name/${countrySearch}`)
+        .then(function(response){
+        return response.json();
+      })
+      .then(function(data){
+        
+      })
+      .catch(function(error){
+        //Modal
+        //Modal
+      });
+    });
+    }
     
     latlon.addEventListener("click", locationKey);
     latlon2.addEventListener("click", locationKey);    
