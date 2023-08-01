@@ -25,8 +25,22 @@ var cityOption6 = document.getElementById("city6");
 var cityOption7 = document.getElementById("city7");
 var cityOption8 = document.getElementById("city8");
 
-var countryMenu1 = document.querySelector("#dropdown-menu4");
-var countryMenu2 = document.querySelector("#dropdown-menu4"); 
+var countryMenu1 = document.getElementById("dropdown-menu4");
+var countryMenu2 = document.getElementById("dropdown-menu5"); 
+var flagImg;
+var flag1 = document.getElementById("img1");
+var flag2 = document.getElementById("img2");
+var lang1 = document.getElementById("lang1");
+var pop1 = document.getElementById("pop1");
+var currency1 = document.getElementById("currency1");
+var lang2 =  document.getElementById("lang2");
+var pop2 = document.getElementById("pop2");
+var currency2 = document.getElementById("currency2");
+var countryPopulation
+var currencySymbol 
+var currencyName
+var language
+var capital
 
 // var countriesObj 
 // var countryData
@@ -197,7 +211,7 @@ function citySearch(countryCode){
     cityOption6.textContent = "Seoul";
     cityOption7.textContent = "Busan";
     cityOption8.textContent = "Gwangju";
-    cityOption9.textContent = "Incheon";
+    cityOption9.textContent = "Incheon";      
     
   });    
 
@@ -214,52 +228,76 @@ function citySearch(countryCode){
 // Event listener for Country 1 using id dropdown-menu4
 countryMenu1.addEventListener("click", function(event) {
   event.stopPropagation();
-  // console.log(this);
-  // console.log(event.target)
-  
-  // Takes the country code
+
+  // Takes the country code as the search filter for RestCountries API
   citySearch(event.target.id).then(function(data) {
     console.log(data)
     getCountry(data)
+
+    lang1.append(" " + language);
+    pop1.append(" " + countryPopulation);
+    currency1.append(" " + currencyName + " " + currencySymbol)
+    flag1.src = flagImg;
   })
 })
 
-function getCountry (dataArr) {
-  for (var country of dataArr) {
+// Event listener for Country 2 using dropdown-menu5
+countryMenu2.addEventListener("click", function(event) {
+  event.stopPropagation();
+
+  // lang2.textContent(" ");                   // ALERT! Figure out how to clear the text when starting a new search !!
+  // pop2.append(" ");
+  // currency2.append(" ")
+
+  var code = event.target.id              
+  code = code.slice(0, -1);                             // Deletes the number 2 from the id for all column 2 menu options
+  
+  // Takes the country code
+  citySearch(code).then(function(data) {
+    console.log(data)
+    getCountry(data)
+
+    lang2.append(" " + language);
+    pop2.append(" " + countryPopulation);
+    currency2.append(" " + currencyName + " " + currencySymbol)
+    flag2.src = flagImg;
+  })
+})
+
+
+function getCountry (dataArr) {             // DataArr is an array with index 0 being the country object
+  for (var country of dataArr) {        
 
     var currencies = country.currencies;
     var countryFlag = country.flags;
     var countryLanguage = country.languages;
-    var countryPopulation = country.population;
+    countryPopulation = country.population;
     console.log(countryPopulation);
     var countryCapital = country.capital;
 
-    for (var currency in currencies) {
+    for (var currency in currencies) {                    // Access currency object inside the country object
       console.log(currencies[currency].symbol);
       console.log(currencies[currency].name);
 
-      var currencySymbol = currencies[currency].symbol;
-      var currencyName = currencies[currency].name;
+      currencySymbol = currencies[currency].symbol;
+      currencyName = currencies[currency].name;
     }
 
-    for (var flag in countryFlag) {
-      var flagImg = countryFlag.svg;
-      console.log(flagImg)
+    for (var flag in countryFlag) {                     // Flag is the key inside the flag object
+      if (flag == "svg"){
+        flagImg = countryFlag[flag];
+      }
     }
 
-    for (var lang in countryLanguage) {
+    for (var lang in countryLanguage) {                   // lang is the key inside the language obj
       console.log(countryLanguage[lang]);
-      var language = countryLanguage[lang];
+      language = countryLanguage[lang];
     }
 
     for (var capt in countryCapital) {
       console.log(countryCapital[capt]);
-      var capital = countryCapital[capt];
+      capital = countryCapital[capt];
+    }
   }
+  return flagImg, currencyName, currencySymbol, countryPopulation, language, capital;
 }
-
-    
-    
-    
-    
-  
