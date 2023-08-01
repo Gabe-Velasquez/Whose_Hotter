@@ -171,8 +171,7 @@ function weatherSearch(){
         })
         .catch(function(error){
           // modal alert goes here
-        })
-      }})     
+        })   
       .catch(function(error){
         //modal alert goes here
       });
