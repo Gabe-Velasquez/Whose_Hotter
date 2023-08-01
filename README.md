@@ -13,11 +13,12 @@ To start using the application, you will first select a country from a dropdown 
 ![Alt text](./images/WhoseHotter.png)
 
 ## Credits 
-@astrunk87 <br />
-@Max24p7 <br />
-@aridel96 <br />
+Alex Strunk (@astrunk87) <br />
+Maxwell Peter (@Max24p7) <br />
+Arianna Delgado (@aridel96) <br />
 
-## Future Updates
+## Future Updates Coming Soon!
 - Use of modals for previous searches in navbar. 
 - integrate airline ticket purchasing from current searches.
 - Display more information about the city that was chosen (currency, surrounding countries, etc.)
+- Things to see for the selected location such as holidays, concerts or festivals!
