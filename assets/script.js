@@ -113,11 +113,11 @@ function cityStorage(){
   let keysToMake = 2;
   
 // Loop through keys and creates entries
-for (let i=0; i < Math.min(keys.length, keysToMake); i++){
+for (let i=0; i < Math.min(key.length, keysToMake); i++){
   let AElement = document.createElement('a');
-  AElement.textContent = keys[i];
+  AElement.textContent = key[i];
   recentCity.appendChild(AElement);
-}
+  }
 }
 
 
