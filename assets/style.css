@@ -1,8 +1,15 @@
 .footer {
     background-color: hsl(0, 0%, 21%);
     color: #fefefe;
-    
 }
+
+#latlon {
+    margin-left: 8%;
+}
+#latlon2{
+    margin-left: 8%;
+}
+
 
 .footertitle {
     color: #fefefe;
@@ -25,5 +32,3 @@
     opacity: 1;
     padding: 6px 22px 6px 22px;
 }
-
-
