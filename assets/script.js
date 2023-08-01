@@ -183,7 +183,6 @@ function citySearch(countryCode){
             //Modal
         });
 };
-<<<<<<< HEAD
 
 // city search for items stored in local storage and populating in navbar 
 function cityStorage(){
@@ -201,8 +200,6 @@ for (let i=0; i < Math.min(key.length, keysToMake); i++){
 
 // drop down countries
 // if function so when a country is picked the cities option changes in the next box
-=======
->>>>>>> d920a827734bdb7727aa7859247b051c955d8f32
 
 // Search function and fetches API request 
 function weatherSearch(){
@@ -573,3 +570,5 @@ function getCountry (dataArr) {             // DataArr is an array with index 0 
   }
   return flagImg, currencyName, currencySymbol, countryPopulation, language, capital;
 }
+
+cityStorage();
