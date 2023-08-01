@@ -184,6 +184,23 @@ function citySearch(countryCode){
         });
 };
 
+// city search for items stored in local storage and populating in navbar 
+function cityStorage(){
+  const key = Object.keys(localStorage); //need to build set item feature so we have places saved locally
+  let keysToMake = 2;
+  
+// Loop through keys and creates entries
+for (let i=0; i < Math.min(key.length, keysToMake); i++){
+  let AElement = document.createElement('a');
+  AElement.textContent = key[i];
+  recentCity.appendChild(AElement);
+  }
+}
+
+
+// drop down countries
+// if function so when a country is picked the cities option changes in the next box
+
 // Search function and fetches API request 
 function weatherSearch(){
    fetch(apiUrl + apiKey)
@@ -553,3 +570,5 @@ function getCountry (dataArr) {             // DataArr is an array with index 0 
   }
   return flagImg, currencyName, currencySymbol, countryPopulation, language, capital;
 }
+
+cityStorage();
