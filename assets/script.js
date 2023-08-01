@@ -26,6 +26,7 @@ var buttonEl = document.getElementById("button");
 var locationTest = true;
 var latlon = document.getElementById("latlon");
 var latlon2 = document.getElementById("latlon2");
+var day1 = document.getElementById("day1");
 
 // USA
 var NewYork = "40.776676, -73.971321"
@@ -87,6 +88,18 @@ var Adelaide= "-34.921230,138.599503"
         })
         .then(function(data){
           console.log(data);
+
+         const dateOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date = new Date(data.DailyForecasts[0].Date);
+            const formattedDate = date.toLocaleDateString('en-US', dateOptions);
+
+            day1.textContent = formattedDate + " high of " + data.DailyForecasts[0].Temperature.Maximum.Value;
+            console.log(data.DailyForecasts[0].Temperature.Maximum.Value)
+
+
+          // day1.append(data.DailyForecasts[0].Date +" high of "+ data.DailyForecasts[0].Temperature.Maximum.Value);
+          // console.log(data.DailyForecasts[0].Temperature.Maximum.Value)
+
           
         })
         .catch(function(error){
