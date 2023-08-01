@@ -137,7 +137,8 @@ function locationKey(){
           return response.json();
         })
         .then(function(data){
-          console.log(data);        
+          console.log(data);  
+          localStorage.setItem('city', JSON.stringify(data.name));      
         })
         .catch(function(error){
           // modal alert goes here
