@@ -1,9 +1,11 @@
 // Selectors to link html elements
 // let submitBtn = document.querySelector('#');
+
 let countrySearch = document.getElementById('#');
 let city1SelectorEl = document.getElementById('city1selector');
 var country = document.getElementById("country");
 var country2 = document.getElementById("country2");
+
 var countryUS = document.getElementById("us");
 var countryMX = document.getElementById("mx");
 var countryDE = document.getElementById("de");
@@ -22,6 +24,14 @@ var cityOption5 = document.getElementById("city5");
 var cityOption6 = document.getElementById("city6");
 var cityOption7 = document.getElementById("city7");
 var cityOption8 = document.getElementById("city8");
+
+var countryMenu1 = document.querySelector("#dropdown-menu4");
+var countryMenu2 = document.querySelector("#dropdown-menu4"); 
+
+// var countriesObj 
+// var countryData
+// var currency = " ";
+
 var buttonEl = document.getElementById("button");
 var locationTest = true;
 var latlon = document.getElementById("latlon");
@@ -55,6 +65,7 @@ var Adelaide= "-34.921230,138.599503"
     
 // 3497809
 
+
 // // let cityResult = [];
 
 // Accuweather API 
@@ -82,12 +93,81 @@ var Adelaide= "-34.921230,138.599503"
       
       if (locationTest == true){  
         fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
+
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(data){
+            console.log(data);
+            console.log("test");
+          })
+          .catch(function(error){
+            // modal alert goes here
+          })
+        }})     
+     .catch(function(error){
+    //modal alert goes here
+  });
+};
+  // function weatherSearch(){
+  //   fetch(`http://api.accuweather.com/locations/v1/${data.key}?q=san&apikey=`+ apiKey)
+  //   .then(function(response){
+  //     return response.json();
+  //   })
+  //   .then(function(data){
+  //     console.log(data)
+      
+  //   })
+  //   .catch(function(error){
+  //     //modal alert goes here
+  //   });
+  // };
+
+buttonEl.addEventListener("click", locationKey); 
+  
+
+// Search function and fetches API request 
+function weatherSearch(){
+  fetch(`http://api.accuweather.com/locations/v1/${Adelaide}?q=san&apikey=`+ apiKey)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    console.log(data)
+    
+  })
+  .catch(function(error){
+    //modal alert goes here
+  });
+};
+
+// RESTcountry API fetch
+function citySearch(countryCode){
+  // original RestCountries API link: https://restcountries.com/v3.1/name/${searchCountry}
+  // Search through entire list of countries: https://restcountries.com/v3.1/all
+  
+    return fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`)
         .then(function(response){
-          return response.json();
+            return response.json();
         })
         .then(function(data){
-          console.log(data);
-          
+          // countryData = data
+          // console.log(data)
+          return data
+
+        })
+        .catch(function(error){
+            //Modal
+        });
+};
+
+// Search function and fetches API request 
+function weatherSearch(){
+   fetch(apiUrl + apiKey)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
         })
         .catch(function(error){
           // modal alert goes here
@@ -383,7 +463,53 @@ var Adelaide= "-34.921230,138.599503"
     
   });   
 
+// Event listener for Country 1 using id dropdown-menu4
+countryMenu1.addEventListener("click", function(event) {
+  event.stopPropagation();
+  // console.log(this);
+  // console.log(event.target)
+  
+  // Takes the country code
+  citySearch(event.target.id).then(function(data) {
+    console.log(data)
+    getCountry(data)
+  })
+})
 
+function getCountry (dataArr) {
+  for (var country of dataArr) {
+
+    var currencies = country.currencies;
+    var countryFlag = country.flags;
+    var countryLanguage = country.languages;
+    var countryPopulation = country.population;
+    console.log(countryPopulation);
+    var countryCapital = country.capital;
+
+    for (var currency in currencies) {
+      console.log(currencies[currency].symbol);
+      console.log(currencies[currency].name);
+
+      var currencySymbol = currencies[currency].symbol;
+      var currencyName = currencies[currency].name;
+    }
+
+    for (var flag in countryFlag) {
+      var flagImg = countryFlag.svg;
+      console.log(flagImg)
+    }
+
+    for (var lang in countryLanguage) {
+      console.log(countryLanguage[lang]);
+      var language = countryLanguage[lang];
+    }
+
+    for (var capt in countryCapital) {
+      console.log(countryCapital[capt]);
+      var capital = countryCapital[capt];
+    }
+  }
+}
 
     
     
