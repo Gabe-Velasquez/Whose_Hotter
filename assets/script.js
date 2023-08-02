@@ -81,6 +81,7 @@ var buttonEl = document.getElementById("button");
 var locationTest = true;
 var latlon = document.getElementById("latlon");
 var latlon2 = document.getElementById("latlon2");
+var day1 = document.getElementById("day1");
 
 // USA
 var NewYork = "40.776676, -73.971321"
@@ -137,8 +138,38 @@ function locationKey(){
           return response.json();
         })
         .then(function(data){
-          console.log(data);  
-          localStorage.setItem('city', JSON.stringify(data.name));      
+          console.log(data);
+          // with help from TA to format date correctly
+         const dateOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date = new Date(data.DailyForecasts[0].Date);
+            const formattedDate = date.toLocaleDateString('en-US', dateOptions);
+
+            day1.textContent = formattedDate + " high of " + data.DailyForecasts[0].Temperature.Maximum.Value;
+
+          const dateOptions1 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const date1 = new Date(data.DailyForecasts[1].Date);
+          const formattedDate1 = date1.toLocaleDateString('en-US', dateOptions1);  
+            day2.textContent = formattedDate1 + " high of " + data.DailyForecasts[1].Temperature.Maximum.Value;
+            
+          const dateOptions2 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const date2 = new Date(data.DailyForecasts[2].Date);
+          const formattedDate2 = date.toLocaleDateString('en-US', dateOptions2);  
+            day3.textContent = formattedDate2 + " high of " + data.DailyForecasts[2].Temperature.Maximum.Value;
+
+          const dateOptions3 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const date3 = new Date(data.DailyForecasts[3].Date);
+          const formattedDate3 = date3.toLocaleDateString('en-US', dateOptions3);
+            day4.textContent = formattedDate3 + " high of " + data.DailyForecasts[3].Temperature.Maximum.Value;
+            
+          const dateOptions4 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const date4 = new Date(data.DailyForecasts[4].Date);
+          const formattedDate4 = date4.toLocaleDateString('en-US', dateOptions4);    
+            day5.textContent = formattedDate4 + " high of " + data.DailyForecasts[4].Temperature.Maximum.Value;       
+          
+
+//           console.log(data);  
+//           localStorage.setItem('city', JSON.stringify(data.name));      
+
         })
         .catch(function(error){
           // modal alert goes here
@@ -217,6 +248,59 @@ function weatherSearch(){
         //modal alert goes here
       });
     };
+
+    function locationKey2(){
+      fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon2.textContent}`)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(data){
+        console.log(latlon.textContent);
+        console.log(data.Key);
+        var locationNum = (data.Key);
+        
+        if (locationTest == true){  
+          fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(data){
+            console.log(data);
+            // with help from TA to format date correctly
+           const dateOptions6 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+              const date6 = new Date(data.DailyForecasts[0].Date);
+              const formattedDate6 = date6.toLocaleDateString('en-US', dateOptions6);
+              day6.textContent = formattedDate6 + " high of " + data.DailyForecasts[0].Temperature.Maximum.Value;
+  
+            const dateOptions7 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date7 = new Date(data.DailyForecasts[1].Date);
+            const formattedDate7 = date7.toLocaleDateString('en-US', dateOptions7);  
+              day7.textContent = formattedDate7 + " high of " + data.DailyForecasts[1].Temperature.Maximum.Value;
+              
+            const dateOptions8 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date8 = new Date(data.DailyForecasts[2].Date);
+            const formattedDate8 = date8.toLocaleDateString('en-US', dateOptions8);  
+              day8.textContent = formattedDate8 + " high of " + data.DailyForecasts[2].Temperature.Maximum.Value;
+  
+            const dateOptions9 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date9 = new Date(data.DailyForecasts[3].Date);
+            const formattedDate9 = date9.toLocaleDateString('en-US', dateOptions9);
+              day9.textContent = formattedDate9 + " high of " + data.DailyForecasts[3].Temperature.Maximum.Value;
+              
+            const dateOptions10 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date10 = new Date(data.DailyForecasts[4].Date);
+            const formattedDate10 = date10.toLocaleDateString('en-US', dateOptions10);    
+              day10.textContent = formattedDate10 + " high of " + data.DailyForecasts[4].Temperature.Maximum.Value;       
+            
+          })
+          .catch(function(error){
+            // modal alert goes here
+          })
+        }})     
+        .catch(function(error){
+          //modal alert goes here
+        });
+      }; 
     
     // temp search button to check weather api
     // RESTcountry API fetch
@@ -241,7 +325,8 @@ function weatherSearch(){
     }
     
     latlon.addEventListener("click", locationKey);
-    latlon2.addEventListener("click", locationKey);    
+    // might have to make this locationkey2 to have it append the right part. would also need to make function
+    latlon2.addEventListener("click", locationKey2);    
       
   countryUS.addEventListener("click", function(event) {
       event.preventDefault();
@@ -373,7 +458,11 @@ function weatherSearch(){
   countryUS2.addEventListener("click", function(event) {
     event.preventDefault();
     country2.textContent = "United States";
+
+//     cityOption5.textContent = "LosAngeles";
+
     cityOption5.textContent = "Los Angeles";
+
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(LosAngeles);        
