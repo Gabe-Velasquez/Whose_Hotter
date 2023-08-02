@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"> <!-- FontAwesome Link -->
     
     <!-- jQuery UI <link> tag -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="assets/style.css"> <!-- CSS Link -->
     <title>Whose Hotter</title>
@@ -28,31 +28,25 @@
         <div id="navbarBasicExample" class="navbar-end">
             <div class="navbar-item is-mobile is-flex is-align-self-center is-flex-direction-column">
                 <p class="subtitle is-mobile is-flex is-align-self-center is-flex-wrap-wrap" style="color:white; ">Recent Searches: </p>
-                <div class="buttons">
-                    <a class="button is-info" id="recentCities">
-                        <strong>New York City, NY</strong>
-                    </a>
-                    <a class="button is-info" id="recentCities">
-                        <strong>Paris, France</strong>
-                    </a>
-                    <a class="button is-info" id="recentCities">
-                        <strong>Seoul, South Korea</strong>
-                    </a>
-                </div>
+                <ul class="buttons">
+                    <li class="button is-info" id="recentCities">
+                        <strong></strong>
+                    </li>
+                </ul>
             </div>
             </div>
         </div>
     </nav>
     <!-- Hero -->
-    <section class="hero is-medium is-warning">
+    <section class="hero is-warning">
         <div class="hero-body">
-          <p class="title">
+          <p class="title is-flex is-justify-content-center">
             Need a Vacation where the weather is just right?
           </p>
-          <p class="subtitle">
+          <p class="subtitle is-flex is-justify-content-center">
             We're here to help.<i class='fas fa-rainbow'></i>
           </p>
-          <p class="subtitle">
+          <p class="subtitle is-flex is-justify-content-center">
             Start by selecting two locations in the fields below.
           </p>
         </div>
@@ -108,7 +102,7 @@
                             </span>
                         </button>
                     </div>
-                    <button id="latlon"></button>
+                    <button class ='button is-light' id="latlon"></button>
                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                         <div class="dropdown-content" id="city1Selector">
                             <a href="#" class="dropdown-item" id="city1">
@@ -128,7 +122,8 @@
                 </div>
             </div>
             <!-- City 1 Selector Results -->
-            <div class="tile is-child is-12 notification is-primary"> <!-- First Column Results Square -->
+<!-- 
+<!--             <div class="tile is-child is-12 notification is-primary"> <!-- First Column Results Square -->
                 <p class="title">Result of City 1</p>
                 <p class="subtitle">language</p>
                 <p class="subtitle">region</p>
@@ -136,7 +131,28 @@
                 <p class="subtitle" id="day2"><i class='fas fa-cloud'></i></p>
                 <p class="subtitle" id="day3"><i class='fas fa-bolt' style='color:yellow'></i> </p>
                 <p class="subtitle" id="day4"><i class='fas fa-sun' style='color:yellow'></i></p>
-                <p class="subtitle" id="day5"><i class='fas fa-sun' style='color:yellow'></i></p>
+                <p class="subtitle" id="day5"><i class='fas fa-sun' style='color:yellow'></i></p> --> -->
+
+            <div class="tile is-child is-12 notification is-primary"> <!-- First Column Weather Results Square -->
+                <p class="title">Weather</p>
+                <!-- <p class="subtitle">language</p>
+                <p class="subtitle">region</p> -->
+                <p class="subtitle" id="day1">7/24 --  High 78°</p>
+                <p class="subtitle" id="day2">7/25 --  High 72°</p>
+                <p class="subtitle" id="day3">7/26 --  High 84°</p>
+                <p class="subtitle" id="day4">7/27 --  High 90°</p>
+                <p class="subtitle" id="day5" >7/28 --  High 92°</p>
+            </div>
+            <div class="tile is-child is-12 notification is-primary"> <!-- First Column About Results Square -->
+                <p class="title">About</p>
+                <p class="subtitle" id="lang1">Language:</p>
+                <p class="subtitle" id="pop1">Population:</p>
+                <p class="subtitle" id="currency1">Currency:</p>
+                <div class="columns">                                       
+                    <p class="column" subtitle">Flag:</p>
+                    <img class="coulumn" src="" alt="country flag" id="img1"/>
+                </div>
+
             </div>
         </div>
         <!-- Column 2 -->
@@ -152,7 +168,7 @@
                                 </span>
                             </button>
                         </div>
-                        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                        <div class="dropdown-menu" id="dropdown-menu5" role="menu">
                             <div class="dropdown-content" id="country2Selector">
                                 <a href="#" class="dropdown-item" id="us2">
                                     United States
@@ -182,7 +198,7 @@
                             </span>
                         </button>
                     </div>
-                    <button id="latlon2"></button>
+                    <button class ='button is-light' id="latlon2"></button>
                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                         <div class="dropdown-content" id="city2Selector">
                             <a href="#" class="dropdown-item" id="city5">
@@ -202,6 +218,7 @@
                 </div>
             </div>
             <!-- City 2 Selector Results -->
+o
             <div class="tile is-child is-12 notification is-dark">  <!-- Second Column Results Square -->
                 <p class="title">Result of City 2</p>
                 <p class="subtitle">language</p>
@@ -211,10 +228,32 @@
                 <p class="subtitle" id="day8"> <i class='fas fa-bolt' style='color:yellow'></i></p>
                 <p class="subtitle" id="day9"><i class='fas fa-sun' style='color:yellow'></i></p>
                 <p class="subtitle" id="day10"><i class='fas fa-sun' style='color:yellow'></i></p>
+
+<!--             <div class="tile is-child is-12 notification is-dark">  <!-- Second Column Weather Results Square -->
+                <p class="title">Weather</p>
+                <!-- <p class="subtitle">language</p>
+                <p class="subtitle">region</p> -->
+                <p class="subtitle">7/24 -- <i class='fas fa-sun' style='color:yellow'></i> High 78°</p>
+                <p class="subtitle">7/25 -- <i class='fas fa-cloud'></i> High 72°</p>
+                <p class="subtitle">7/26 -- <i class='fas fa-bolt' style='color:yellow'></i> High 84°</p>
+                <p class="subtitle">7/27 -- <i class='fas fa-sun' style='color:yellow'></i> High 90°</p>
+                <p class="subtitle">7/28 -- <i class='fas fa-sun' style='color:yellow'></i> High 92°</p> -->
+
+            </div>
+            <div class="tile is-child is-12 notification is-dark">  <!-- Second Column About Results Square -->
+                <p class="title">About</p>
+                <p class="subtitle" id="lang2">Language:</p>
+                <p class="subtitle" id="pop2">Population:</p>
+                <p class="subtitle" id="currency2">Currency:</p>
+                <div class="columns">                                       
+                    <p class="column" subtitle">Flag:</p>
+                    <img class="coulumn" src="" alt="country flag" id="img2"/>
+                </div>
             </div>
         </div>
     </div>
-
+      
+    <!-- Footer Added -->
     <footer class="footer">
         <div class="has-text-centered">
             <p class="title footertitle">Project built by:</p>
@@ -234,10 +273,9 @@
           </p>
 
         </div>
-    </footer>
+      </footer>
 
 
-      
     <!-- jquery script -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
