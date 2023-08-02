@@ -1,8 +1,5 @@
 // Selectors to link html elements
-// let submitBtn = document.querySelector('#');
-
 let countrySearch = document.getElementById('#');
-// let citySelect = document.getElementById('#');
 var country1 = document.getElementById("country");
 var country2 = document.getElementById("country2");
 
@@ -42,11 +39,6 @@ var currencyName
 var language
 var capital
 
-// var countriesObj 
-// var countryData
-// var currency = " ";
-
-// // let cityResult = [];
 
 // Accuweather API 
 const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
@@ -85,10 +77,7 @@ function locationKey(){
     // temp search button to check weather api
 
 // RESTcountry API fetch
-function citySearch(countryCode){
-  // original RestCountries API link: https://restcountries.com/v3.1/name/${searchCountry}
-  // Search through entire list of countries: https://restcountries.com/v3.1/all
-  
+function citySearch(countryCode){  
     return fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`)
         .then(function(response){
             return response.json();
@@ -229,14 +218,18 @@ function citySearch(countryCode){
 countryMenu1.addEventListener("click", function(event) {
   event.stopPropagation();
 
+  lang1.textContent = " ";                  
+  pop1.textContent = " ";
+  currency1.textContent = " ";
+
   // Takes the country code as the search filter for RestCountries API
   citySearch(event.target.id).then(function(data) {
-    console.log(data)
     getCountry(data)
 
-    lang1.append(" " + language);
-    pop1.append(" " + countryPopulation);
-    currency1.append(" " + currencyName + " " + currencySymbol)
+    lang1.append("Language: " + language);
+    pop1.append("Population: " + countryPopulation);
+    currency1.append("Currency: " + currencyName + " " + currencySymbol)
+    flag1.alt = "country flag"
     flag1.src = flagImg;
   })
 })
@@ -245,21 +238,21 @@ countryMenu1.addEventListener("click", function(event) {
 countryMenu2.addEventListener("click", function(event) {
   event.stopPropagation();
 
-  // lang2.textContent(" ");                   // ALERT! Figure out how to clear the text when starting a new search !!
-  // pop2.append(" ");
-  // currency2.append(" ")
+  lang2.textContent = " ";                   // Clears previous results
+  pop2.textContent = " ";
+  currency2.textContent = " ";
 
   var code = event.target.id              
   code = code.slice(0, -1);                             // Deletes the number 2 from the id for all column 2 menu options
   
   // Takes the country code
   citySearch(code).then(function(data) {
-    console.log(data)
     getCountry(data)
 
-    lang2.append(" " + language);
-    pop2.append(" " + countryPopulation);
-    currency2.append(" " + currencyName + " " + currencySymbol)
+    lang2.append("Language: " + language);
+    pop2.append("Population: " + countryPopulation);
+    currency2.append("Currency: " + currencyName + " " + currencySymbol)
+    flag2.alt = "country flag"
     flag2.src = flagImg;
   })
 })
@@ -272,13 +265,9 @@ function getCountry (dataArr) {             // DataArr is an array with index 0 
     var countryFlag = country.flags;
     var countryLanguage = country.languages;
     countryPopulation = country.population;
-    console.log(countryPopulation);
     var countryCapital = country.capital;
 
     for (var currency in currencies) {                    // Access currency object inside the country object
-      console.log(currencies[currency].symbol);
-      console.log(currencies[currency].name);
-
       currencySymbol = currencies[currency].symbol;
       currencyName = currencies[currency].name;
     }
@@ -290,12 +279,10 @@ function getCountry (dataArr) {             // DataArr is an array with index 0 
     }
 
     for (var lang in countryLanguage) {                   // lang is the key inside the language obj
-      console.log(countryLanguage[lang]);
       language = countryLanguage[lang];
     }
 
     for (var capt in countryCapital) {
-      console.log(countryCapital[capt]);
       capital = countryCapital[capt];
     }
   }
