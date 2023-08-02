@@ -6,7 +6,8 @@ let countrySearch = document.getElementById('#');
 var country1 = document.getElementById("country");
 var country2 = document.getElementById("country2");
 var cityName1 = document.getElementById("cityName1");
-var cityName2 = document.getElementById("cityName2");
+var cityName2 = document.getElementById("cityName2")
+let recentCity = document.getElementById('recentCities');
 
 var countryUS = document.getElementById("us");
 var countryMX = document.getElementById("mx");
@@ -201,7 +202,7 @@ function cityStorage(){
   
 // Loop through keys and creates entries
 for (let i=0; i < Math.min(key.length, keysToMake); i++){
-  let AElement = document.createElement('a');
+  let AElement = document.createElement('li');
   AElement.textContent = key[i];
   recentCity.appendChild(AElement);
   }
@@ -294,7 +295,7 @@ for (let i=0; i < Math.min(key.length, keysToMake); i++){
         return response.json();
       })
       .then(function(data){
-        
+        localStorage.setItem('city',JSON.stringify(data.name.common));
       })
       .catch(function(error){
         //Modal
