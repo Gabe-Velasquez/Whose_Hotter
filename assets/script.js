@@ -119,7 +119,7 @@ var Adelaide= "-34.921230,138.599503"
 
 
 function locationKey(){
-  fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon.textContent}`)
+  fetch(`HTTPS://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon.textContent}`)
   .then(function(response){
     return response.json();
   })
