@@ -5,6 +5,8 @@ let countrySearch = document.getElementById('#');
 // let citySelect = document.getElementById('#');
 var country1 = document.getElementById("country");
 var country2 = document.getElementById("country2");
+var cityName1 = document.getElementById("cityName1");
+var cityName2 = document.getElementById("cityName2");
 
 var countryUS = document.getElementById("us");
 var countryMX = document.getElementById("mx");
@@ -111,15 +113,9 @@ var Adelaide= "-34.921230,138.599503"
 
 // // let cityResult = [];
 
-// Accuweather API 
-const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
-let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
-
-// city1.addEventListener("click", function(evt) {
-//   evt.preventDefault(); 
-//     latlon.append(LosAngeles);
-// }); 
-
+// Accuweather API, wont take as var, had to hard code into fucntion
+// const apiKey = 'j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp';
+// let apiUrl = 'http://api.accuweather.com/locations/v1/search?q=san&apikey=';
 
 
 function locationKey(){
@@ -166,35 +162,17 @@ function locationKey(){
           const formattedDate4 = date4.toLocaleDateString('en-US', dateOptions4);    
             day5.textContent = formattedDate4 + " high of " + data.DailyForecasts[4].Temperature.Maximum.Value;       
           
-
-//           console.log(data);  
-//           localStorage.setItem('city', JSON.stringify(data.name));      
-
         })
         .catch(function(error){
-          // modal alert goes here
+         
         })
       }})     
     .catch(function(error){
-        //modal alert goes here
+       
       });
     };
     
-    function weatherSearch(){
-        fetch(`http://api.accuweather.com/locations/v1/${data.key}?q=san&apikey=`+ apiKey)
-        .then(function(response){
-          return response.json();
-        })
-        .then(function(data){
-          console.log(data)
     
-        })
-        .catch(function(error){
-          //modal alert goes here
-        });
-      };
-
-    // temp search button to check weather api
 
 // RESTcountry API fetch
 function citySearch(countryCode){
@@ -234,20 +212,20 @@ for (let i=0; i < Math.min(key.length, keysToMake); i++){
 // if function so when a country is picked the cities option changes in the next box
 
 // Search function and fetches API request 
-function weatherSearch(){
-   fetch(apiUrl + apiKey)
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(data){
-        })
-        .catch(function(error){
-          // modal alert goes here
-        })   
-      .catch(function(error){
-        //modal alert goes here
-      });
-    };
+// function weatherSearch(){
+//    fetch(apiUrl + apiKey)
+//         .then(function(response){
+//             return response.json();
+//         })
+//         .then(function(data){
+//         })
+//         .catch(function(error){
+//           // modal alert goes here
+//         })   
+//       .catch(function(error){
+//         //modal alert goes here
+//       });
+//     };
 
     function locationKey2(){
       fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon2.textContent}`)
@@ -255,7 +233,7 @@ function weatherSearch(){
         return response.json();
       })
       .then(function(data){
-        console.log(latlon.textContent);
+        console.log(latlon2.textContent);
         console.log(data.Key);
         var locationNum = (data.Key);
         
@@ -271,6 +249,7 @@ function weatherSearch(){
               const date6 = new Date(data.DailyForecasts[0].Date);
               const formattedDate6 = date6.toLocaleDateString('en-US', dateOptions6);
               day6.textContent = formattedDate6 + " high of " + data.DailyForecasts[0].Temperature.Maximum.Value;
+             
   
             const dateOptions7 = { month: '2-digit', day: '2-digit', year: 'numeric' };
             const date7 = new Date(data.DailyForecasts[1].Date);
@@ -325,7 +304,7 @@ function weatherSearch(){
     }
     
     latlon.addEventListener("click", locationKey);
-    // might have to make this locationkey2 to have it append the right part. would also need to make function
+    // had to make this locationkey2 to have it append the right part. also needed to make function
     latlon2.addEventListener("click", locationKey2);    
       
   countryUS.addEventListener("click", function(event) {
@@ -334,22 +313,26 @@ function weatherSearch(){
       cityOption1.textContent = "LosAngeles";
       city1.addEventListener("click", function(evt) {
         evt.preventDefault(); 
-        latlon.append(LosAngeles);        
+        latlon.append(LosAngeles);     
+        cityName1.textContent = "Los Angeles";    
       });
       cityOption2.textContent = "New York";
       city2.addEventListener("click", function(evt) {
         evt.preventDefault(); 
-        latlon.append(NewYork);        
+        latlon.append(NewYork);     
+        cityName1.textContent = "New York";    
       });
       cityOption3.textContent = "Las Vegas";
       city3.addEventListener("click", function(evt) {
         evt.preventDefault(); 
-        latlon.append(LasVegas);        
+        latlon.append(LasVegas);   
+        cityName1.textContent = "Las Vegas";      
       });
       cityOption4.textContent = "Miami";
       city4.addEventListener("click", function(evt) {
         evt.preventDefault(); 
         latlon.append(Miami);        
+        cityName1.textContent = "Miami"; 
       });
     
     });
@@ -361,22 +344,27 @@ function weatherSearch(){
     cityOption1.textContent = "Mexico City";
     city1.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(MexcioCity);        
+      latlon.append(MexcioCity);      
+      cityName1.textContent = "Los Angeles";   
     });
     cityOption2.textContent = "Cancun";
     city2.addEventListener("click", function(evt) {
       evt.preventDefault(); 
         latlon.append(Cancun); 
+        cityName1.textContent = "Cancun"; 
     });
     cityOption3.textContent = "Guadalajara";
     city3.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Guadalajara);        
+      latlon.append(Guadalajara); 
+      cityName1.textContent = "Guadalajara";        
     });
     cityOption4.textContent = "Tijuana";
     city4.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Tijuana);        
+      latlon.append(Tijuana); 
+      cityName1.textContent = "Tijuana"; 
+            
     });
   });  
 
@@ -386,22 +374,26 @@ function weatherSearch(){
     cityOption1.textContent = "Berlin";
     city1.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Berlin);        
+      latlon.append(Berlin);    
+      cityName1.textContent = "Berlin";     
     });
     cityOption2.textContent = "Munich";
     city2.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon.append(Munich);        
+      cityName1.textContent = "Munich"; 
     });
     cityOption3.textContent = "Frankfurt";
     city3.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Frankfurt);        
+      latlon.append(Frankfurt);      
+      cityName1.textContent = "Frankfurt";   
     });
     cityOption4.textContent = "Hamburg";
     city4.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Hamburg);        
+      latlon.append(Hamburg);  
+      cityName1.textContent = "Hamburg";       
     });
   });
 
@@ -411,22 +403,26 @@ function weatherSearch(){
     cityOption1.textContent = "Seoul";
     city1.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Seoul);        
+      latlon.append(Seoul);      
+      cityName1.textContent = "Seoul";   
     });
     cityOption2.textContent = "Busan";
     city2.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon.append(Busan);        
+      cityName1.textContent = "Busan"; 
     });
     cityOption3.textContent = "Gwangju";
     city3.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Gwangju);        
+      latlon.append(Gwangju);       
+      cityName1.textContent = "Gwangju";  
     });
     cityOption4.textContent = "Incheon";
     city4.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon.append(Incheon);        
+      cityName1.textContent = "Incheon"; 
     });    
   });  
     
@@ -437,50 +433,54 @@ function weatherSearch(){
     city1.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon.append(Sydney);        
+      cityName1.textContent = "Sydney"; 
     });
     cityOption2.textContent = "Melbourne";
     city2.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Melbourne);        
+      latlon.append(Melbourne);      
+      cityName1.textContent = "Melbourne";   
     });
     cityOption3.textContent = "Cairns";
     city3.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon.append(Cairns);        
+      cityName1.textContent = "Cairns"; 
     });
     cityOption4.textContent = "Adelaide";
     city4.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon.append(Adelaide);        
+      latlon.append(Adelaide);     
+      cityName1.textContent = "Adelaide";    
     }); 
   });  
 
   countryUS2.addEventListener("click", function(event) {
     event.preventDefault();
     country2.textContent = "United States";
-
-//     cityOption5.textContent = "LosAngeles";
-
     cityOption5.textContent = "Los Angeles";
-
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(LosAngeles);        
+      latlon2.append(LosAngeles); 
+      cityName2.textContent = "Los Angeles";        
     });
     cityOption6.textContent = "New York";
     city6.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(NewYork);        
+      cityName2.textContent = "New York"; 
     });
     cityOption7.textContent = "Las Vegas";
     city7.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(LasVegas);        
+      cityName2.textContent = "Las Vegas"; 
     });
     cityOption8.textContent = "Miami";
     city8.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(Miami);        
+      cityName2.textContent = "Miami"; 
     });
   }); 
 
@@ -490,22 +490,26 @@ function weatherSearch(){
     cityOption5.textContent = "Mexico City";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(MexcioCity);        
+      latlon2.append(MexcioCity);    
+      cityName2.textContent = "Mexcio City";     
     });
     cityOption6.textContent = "Cancun";
     city6.addEventListener("click", function(evt) {
       evt.preventDefault(); 
         latlon2.append(Cancun);
+        cityName2.textContent = "Cancun"; 
     }); 
     cityOption7.textContent = "Guadalajara";
     city7.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Guadalajara);        
+      latlon2.append(Guadalajara);     
+      cityName2.textContent = "Guadalajara";    
     });
     cityOption8.textContent = "Tijuana";
     city8.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Tijuana);        
+      latlon2.append(Tijuana); 
+      cityName2.textContent = "Tijuana";        
     }); 
   });  
     
@@ -515,22 +519,26 @@ function weatherSearch(){
     cityOption5.textContent = "Berlin";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Berlin);        
+      latlon2.append(Berlin);    
+      cityName2.textContent = "Berlin";     
     });
     cityOption6.textContent = "Munich";
     city6.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(Munich);        
+      cityName2.textContent = "Munich"; 
     });
     cityOption7.textContent = "Frankfurt";
     city7.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Frankfurt);        
+      latlon2.append(Frankfurt);      
+      cityName2.textContent = "Frankfurt";   
     });
     cityOption8.textContent = "Hamburg";
     city8.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(Hamburg);        
+      cityName2.textContent = "Hamburg"; 
     });
   });
 
@@ -540,22 +548,26 @@ function weatherSearch(){
     cityOption5.textContent = "Seoul";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Seoul);        
+      latlon2.append(Seoul);     
+      cityName2.textContent = "Seoul";    
     });
     cityOption6.textContent = "Busan";
     city6.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(Busan);        
+      cityName2.textContent = "Busan"; 
     });
     cityOption7.textContent = "Gwangju";
     city7.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Gwangju);        
+      latlon2.append(Gwangju);      
+      cityName2.textContent = "Gwangju";   
     });
     cityOption8.textContent = "Incheon";      
     city8.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(Incheon);        
+      cityName2.textContent = "Incheon"; 
     }); 
   });    
 
@@ -565,22 +577,26 @@ function weatherSearch(){
     cityOption5.textContent = "Sydney";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Sydney);        
+      latlon2.append(Sydney);    
+      cityName2.textContent = "Sydney";     
     });
     cityOption6.textContent = "Melbourne";
     city6.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Melbourne);        
+      latlon2.append(Melbourne);     
+      cityName2.textContent = "Melbourne";    
     });
     cityOption7.textContent = "Cairns";
     city7.addEventListener("click", function(evt) {
       evt.preventDefault(); 
       latlon2.append(Cairns);        
+      cityName2.textContent = "Cairns"; 
     });
     cityOption8.textContent = "Adelaide";
     city8.addEventListener("click", function(evt) {
       evt.preventDefault(); 
-      latlon2.append(Adelaide);        
+      latlon2.append(Adelaide);     
+      cityName2.textContent = "Adelaid";    
     });
   });   
 
