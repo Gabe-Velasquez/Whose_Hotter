@@ -119,7 +119,7 @@ var Adelaide= "-34.921230,138.599503"
 
 
 function locationKey(){
-  fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon.textContent}`)
+  fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon.textContent}`)
   .then(function(response){
     return response.json();
   })
@@ -129,7 +129,7 @@ function locationKey(){
       var locationNum = (data.Key);
       
       if (locationTest == true){  
-        fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
+        fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
         .then(function(response){
           return response.json();
         })
@@ -228,7 +228,7 @@ for (let i=0; i < Math.min(key.length, keysToMake); i++){
 //     };
 
     function locationKey2(){
-      fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon2.textContent}`)
+      fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon2.textContent}`)
       .then(function(response){
         return response.json();
       })
@@ -238,7 +238,7 @@ for (let i=0; i < Math.min(key.length, keysToMake); i++){
         var locationNum = (data.Key);
         
         if (locationTest == true){  
-          fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
+          fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
           .then(function(response){
             return response.json();
           })
