@@ -88,18 +88,32 @@ var Adelaide= "-34.921230,138.599503"
         })
         .then(function(data){
           console.log(data);
-
+          // with help from TA to format date correctly
          const dateOptions = { month: '2-digit', day: '2-digit', year: 'numeric' };
             const date = new Date(data.DailyForecasts[0].Date);
             const formattedDate = date.toLocaleDateString('en-US', dateOptions);
 
             day1.textContent = formattedDate + " high of " + data.DailyForecasts[0].Temperature.Maximum.Value;
-            console.log(data.DailyForecasts[0].Temperature.Maximum.Value)
 
+          const dateOptions1 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const date1 = new Date(data.DailyForecasts[1].Date);
+          const formattedDate1 = date1.toLocaleDateString('en-US', dateOptions1);  
+            day2.textContent = formattedDate1 + " high of " + data.DailyForecasts[1].Temperature.Maximum.Value;
+            
+          const dateOptions2 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const date2 = new Date(data.DailyForecasts[2].Date);
+          const formattedDate2 = date.toLocaleDateString('en-US', dateOptions2);  
+            day3.textContent = formattedDate2 + " high of " + data.DailyForecasts[2].Temperature.Maximum.Value;
 
-          // day1.append(data.DailyForecasts[0].Date +" high of "+ data.DailyForecasts[0].Temperature.Maximum.Value);
-          // console.log(data.DailyForecasts[0].Temperature.Maximum.Value)
-
+          const dateOptions3 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const date3 = new Date(data.DailyForecasts[3].Date);
+          const formattedDate3 = date3.toLocaleDateString('en-US', dateOptions3);
+            day4.textContent = formattedDate3 + " high of " + data.DailyForecasts[3].Temperature.Maximum.Value;
+            
+          const dateOptions4 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+          const date4 = new Date(data.DailyForecasts[4].Date);
+          const formattedDate4 = date4.toLocaleDateString('en-US', dateOptions4);    
+            day5.textContent = formattedDate4 + " high of " + data.DailyForecasts[4].Temperature.Maximum.Value;       
           
         })
         .catch(function(error){
@@ -110,6 +124,59 @@ var Adelaide= "-34.921230,138.599503"
         //modal alert goes here
       });
     };
+
+    function locationKey2(){
+      fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon2.textContent}`)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(data){
+        console.log(latlon.textContent);
+        console.log(data.Key);
+        var locationNum = (data.Key);
+        
+        if (locationTest == true){  
+          fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationNum}?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp`)      
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(data){
+            console.log(data);
+            // with help from TA to format date correctly
+           const dateOptions6 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+              const date6 = new Date(data.DailyForecasts[0].Date);
+              const formattedDate6 = date6.toLocaleDateString('en-US', dateOptions6);
+              day6.textContent = formattedDate6 + " high of " + data.DailyForecasts[0].Temperature.Maximum.Value;
+  
+            const dateOptions7 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date7 = new Date(data.DailyForecasts[1].Date);
+            const formattedDate7 = date7.toLocaleDateString('en-US', dateOptions7);  
+              day7.textContent = formattedDate7 + " high of " + data.DailyForecasts[1].Temperature.Maximum.Value;
+              
+            const dateOptions8 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date8 = new Date(data.DailyForecasts[2].Date);
+            const formattedDate8 = date8.toLocaleDateString('en-US', dateOptions8);  
+              day8.textContent = formattedDate8 + " high of " + data.DailyForecasts[2].Temperature.Maximum.Value;
+  
+            const dateOptions9 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date9 = new Date(data.DailyForecasts[3].Date);
+            const formattedDate9 = date9.toLocaleDateString('en-US', dateOptions9);
+              day9.textContent = formattedDate9 + " high of " + data.DailyForecasts[3].Temperature.Maximum.Value;
+              
+            const dateOptions10 = { month: '2-digit', day: '2-digit', year: 'numeric' };
+            const date10 = new Date(data.DailyForecasts[4].Date);
+            const formattedDate10 = date10.toLocaleDateString('en-US', dateOptions10);    
+              day10.textContent = formattedDate10 + " high of " + data.DailyForecasts[4].Temperature.Maximum.Value;       
+            
+          })
+          .catch(function(error){
+            // modal alert goes here
+          })
+        }})     
+        .catch(function(error){
+          //modal alert goes here
+        });
+      }; 
     
     // temp search button to check weather api
     // RESTcountry API fetch
@@ -134,7 +201,8 @@ var Adelaide= "-34.921230,138.599503"
     }
     
     latlon.addEventListener("click", locationKey);
-    latlon2.addEventListener("click", locationKey);    
+    // might have to make this locationkey2 to have it append the right part. would also need to make function
+    latlon2.addEventListener("click", locationKey2);    
       
   countryUS.addEventListener("click", function(event) {
       event.preventDefault();
@@ -268,7 +336,7 @@ var Adelaide= "-34.921230,138.599503"
 
   countryUS2.addEventListener("click", function(event) {
     event.preventDefault();
-    country.textContent = "United States";
+    country2.textContent = "United States";
     cityOption5.textContent = "LosAngeles";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
@@ -294,7 +362,7 @@ var Adelaide= "-34.921230,138.599503"
 
   countryMX2.addEventListener("click", function(event) {
     event.preventDefault();
-  country.textContent = "Mexico";
+    countr2.textContent = "Mexico";
     cityOption5.textContent = "Mexico City";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
@@ -320,7 +388,7 @@ var Adelaide= "-34.921230,138.599503"
     
   countryDE2.addEventListener("click", function(event) {
     event.preventDefault();
-    country.textContent = "Germany";
+    country2.textContent = "Germany";
     cityOption5.textContent = "Berlin";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
@@ -346,7 +414,7 @@ var Adelaide= "-34.921230,138.599503"
 
   countryKR2.addEventListener("click", function(event) {
     event.preventDefault();
-    country.textContent = "South Korea";
+    country2.textContent = "South Korea";
     cityOption5.textContent = "Seoul";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
@@ -372,7 +440,7 @@ var Adelaide= "-34.921230,138.599503"
 
   countryAU2.addEventListener("click", function(event) {
     event.preventDefault();
-    country.textContent = "Australia";
+    country2.textContent = "Australia";
     cityOption5.textContent = "Sydney";
     city5.addEventListener("click", function(evt) {
       evt.preventDefault(); 
