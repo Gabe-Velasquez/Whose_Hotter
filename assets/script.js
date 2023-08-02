@@ -228,7 +228,7 @@ for (let i=0; i < Math.min(key.length, keysToMake); i++){
 //     };
 
     function locationKey2(){
-      fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon2.textContent}`)
+      fetch(`HTTPS://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=j3dU13wPqsC6XNhy4fabRe4Rta1qbIKp&q=${latlon2.textContent}`)
       .then(function(response){
         return response.json();
       })
