@@ -28,23 +28,17 @@
         <div id="navbarBasicExample" class="navbar-end">
             <div class="navbar-item is-mobile is-flex is-align-self-center is-flex-direction-column">
                 <p class="subtitle is-mobile is-flex is-align-self-center is-flex-wrap-wrap" style="color:white; ">Recent Searches: </p>
-                <div class="buttons">
-                    <a class="button is-info" id="recentCities">
-                        <strong>New York City, NY</strong>
-                    </a>
-                    <a class="button is-info" id="recentCities">
-                        <strong>Paris, France</strong>
-                    </a>
-                    <a class="button is-info" id="recentCities">
-                        <strong>Seoul, South Korea</strong>
-                    </a>
-                </div>
+                <ul class="buttons">
+                    <li class="button is-info" id="recentCities">
+                        <strong></strong>
+                    </li>
+                </ul>
             </div>
             </div>
         </div>
     </nav>
     <!-- Hero -->
-    <section class="hero is-medium is-warning">
+    <section class="hero is-warning">
         <div class="hero-body">
           <p class="title is-flex is-justify-content-center">
             Need a Vacation where the weather is just right?
@@ -102,13 +96,13 @@
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                             <!-- need to change this when city is selected -->
-                            <span>City</span>
+                            <span id="cityName1">City</span>
                             <span class="icon is-small">
                             <i class="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
                         </button>
                     </div>
-                    <button id="latlon"></button>
+                    <button class ='button is-light' id="latlon"></button>
                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                         <div class="dropdown-content" id="city1Selector">
                             <a href="#" class="dropdown-item" id="city1">
@@ -128,15 +122,17 @@
                 </div>
             </div>
             <!-- City 1 Selector Results -->
+
+
             <div class="tile is-child is-12 notification is-primary"> <!-- First Column Weather Results Square -->
                 <p class="title">Weather</p>
                 <!-- <p class="subtitle">language</p>
                 <p class="subtitle">region</p> -->
-                <p class="subtitle">7/24 -- <i class='fas fa-sun' style='color:yellow'></i> High 78°</p>
-                <p class="subtitle">7/25 -- <i class='fas fa-cloud'></i> High 72°</p>
-                <p class="subtitle">7/26 -- <i class='fas fa-bolt' style='color:yellow'></i> High 84°</p>
-                <p class="subtitle">7/27 -- <i class='fas fa-sun' style='color:yellow'></i> High 90°</p>
-                <p class="subtitle">7/28 -- <i class='fas fa-sun' style='color:yellow'></i> High 92°</p>
+                <p class="subtitle" id="day1">7/24 --  High 78°</p>
+                <p class="subtitle" id="day2">7/25 --  High 72°</p>
+                <p class="subtitle" id="day3">7/26 --  High 84°</p>
+                <p class="subtitle" id="day4">7/27 --  High 90°</p>
+                <p class="subtitle" id="day5" >7/28 --  High 92°</p>
             </div>
             <div class="tile is-child is-12 notification is-primary"> <!-- First Column About Results Square -->
                 <p class="title">About</p>
@@ -147,6 +143,7 @@
                     <p class="column" subtitle">Flag:</p>
                     <img class="coulumn" src="https://clipartix.com/wp-content/uploads/2016/04/Simple-blank-flag-design-free-clip-art.png" alt="country flag" id="img1"/>
                 </div>
+
             </div>
         </div>
         <!-- Column 2 -->
@@ -156,7 +153,7 @@
                     <div class="dropdown is-hoverable m-4 ">
                         <div class="dropdown-trigger">
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                <span id="country2">Country</span>
+                                <span id="country2">Country2</span>
                                 <span class="icon is-small">
                                 <i class="fas fa-angle-down" aria-hidden="true"></i>
                                 </span>
@@ -186,13 +183,13 @@
                 <div class="dropdown is-hoverable m-4">
                     <div class="dropdown-trigger">
                         <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                            <span>City</span>
+                            <span id="cityName2">City</span>
                             <span class="icon is-small">
                             <i class="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
                         </button>
                     </div>
-                    <button id="latlon2"></button>
+                    <button class ='button is-light' id="latlon2"></button>
                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                         <div class="dropdown-content" id="city2Selector">
                             <a href="#" class="dropdown-item" id="city5">
@@ -212,15 +209,17 @@
                 </div>
             </div>
             <!-- City 2 Selector Results -->
-            <div class="tile is-child is-12 notification is-dark">  <!-- Second Column Weather Results Square -->
-                <p class="title">Weather</p>
-                <!-- <p class="subtitle">language</p>
-                <p class="subtitle">region</p> -->
-                <p class="subtitle">7/24 -- <i class='fas fa-sun' style='color:yellow'></i> High 78°</p>
-                <p class="subtitle">7/25 -- <i class='fas fa-cloud'></i> High 72°</p>
-                <p class="subtitle">7/26 -- <i class='fas fa-bolt' style='color:yellow'></i> High 84°</p>
-                <p class="subtitle">7/27 -- <i class='fas fa-sun' style='color:yellow'></i> High 90°</p>
-                <p class="subtitle">7/28 -- <i class='fas fa-sun' style='color:yellow'></i> High 92°</p>
+
+            <div class="tile is-child is-12 notification is-dark"> 
+                
+     <!-- Second Column Weather Results Square -->
+                <p class="title">Weather</p>               
+                <p class="subtitle" id="day6">7/24 -- <i></i> High 78°</p>
+                <p class="subtitle" id="day7">7/25 -- <i></i> High 72°</p>
+                <p class="subtitle" id="day8">7/26 -- <i ></i> High 84°</p>
+                <p class="subtitle" id="day9">7/27 -- <i></i> High 90°</p>
+                <p class="subtitle" id="day10">7/28 -- <i></i> High 92°</p>
+
             </div>
             <div class="tile is-child is-12 notification is-dark">  <!-- Second Column About Results Square -->
                 <p class="title">About</p>
@@ -234,7 +233,8 @@
             </div>
         </div>
     </div>
-
+      
+    <!-- Footer Added -->
     <footer class="footer">
         <div class="has-text-centered">
             <p class="title footertitle">Project built by:</p>
@@ -254,10 +254,9 @@
           </p>
 
         </div>
-    </footer>
+      </footer>
 
 
-      
     <!-- jquery script -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
